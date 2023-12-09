@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Sąskaita $invoice->idNumber </title>
+		<title>Sąskaita INVOICE_ID </title>
 		<style>
       * { 
         font-family: DejaVu Sans; 
@@ -152,25 +152,25 @@
 			<div id="logo">
 				<img src="../static/logo1.png" alt = "logo">
 			</div>
-			<h1>PVM Sąskaita faktūra Nr.  $invoice->idNumber </h1>
+			<h1>PVM Sąskaita faktūra Nr.  INVOICE_ID </h1>
 			
 			<div id="project">
         <div> $client->name </div>
-				<div>Įmonės kodas: $client->registrationCode </div>
-				<div>PVM Kodas: $client->VAT </div>
+				<div>Įmonės kodas: CLIENT_REG_CODE </div>
+				<div>PVM Kodas: CLIENT_VAT </div>
 				<div> $client->address </div>
-				<div>Išrašymo data: <strong> $invoiceDate </strong></div>
-				<div>Apmokėti iki: <strong> $dueDate </strong></div>
+				<div>Išrašymo data: <strong> INVOICE_DATE </strong></div>
+				<div>Apmokėti iki: <strong> DUE_DATE </strong></div>
 				
 			</div>
       <div id="company" class="clearfix">
 				<div> $company->name </div>
-				<div>Įmonės kodas: $company->registrationCode </div>
-        <div>PVM Kodas: $company->VAT </div>
-				<div> $company->address </div>
-				<div>Banko sąskaitos nr. <strong> $company->bankAccount </strong></div>
-				<div><a href="tel: $company->phone "> $company->phone </a> <a href="mailto:{{ $company->email }}"> $company->email </a></div>
-				<div>Pagal pasiūlymą:<strong> PAS- $invoice->offers_id </strong></div>
+				<div>Įmonės kodas: CLIENT_REG_CODE </div>
+                <div>PVM Kodas: CLIENT_VAT </div>
+				<div> COMPANY_ADRESS </div>
+				<div>Banko sąskaitos nr. <strong> COMPANY_BANK_ACCOUNT </strong></div>
+				<div><a href="tel: COMPANY_PHONE "> COMPANY_PHONE </a> <a href="mailto: COMPANY_EMAIL"> COMPANY_EMAIL </a></div>
+				<div>Pagal pasiūlymą:<strong> PAS- INVOICE_OFFER_ID </strong></div>
 			</div>
 		</header>
 		<main>
@@ -187,45 +187,45 @@
 				</thead>
 				<tbody>
 						<tr>
-							<td class="service"> $loop->index </td>
-							<td class="desc"> $product->name </td>
+							<td class="service"> LOOP_INDEX </td>
+							<td class="desc"> PRODUCT_NAME </td>
 							<td class="unit">vnt.</td>
-							<td class="qty"> $product->quantity </td>
-							<td class="subTotal"> $product->subTotal </td>
-							<td class="total"> $product->total </td>
+							<td class="qty"> PRODUCT_QUANT </td>
+							<td class="subTotal"> PRODUCT_SUBTOTAL </td>
+							<td class="total"> PRODUCT_TOTAL </td>
 						</tr>
 					<tr>
 						<td class="service">1</td>
-						<td class="desc"> $invoice->name </td>
+						<td class="desc"> INVOICE_NAME </td>
 						<td class="unit">vnt.</td>
 						<td class="qty">1</td>
-						<td class="subTotal"> $total </td>
-						<td class="total"> $total </td>
+						<td class="subTotal"> TOTAL </td>
+						<td class="total"> TOTAL </td>
 					</tr>
 					<tr>
 						<td class="grand total" colspan="5">Be PVM</td>
-						<td class="grand total"> $total </td>
+						<td class="grand total"> TOTAL </td>
 					</tr>
 					<tr>
 						<td colspan="5">PVM 21%</td>
-						<td class="total"> $total </td>
+						<td class="total"> TOTAL </td>
 					</tr>
           				<tr>
 							<td colspan="5">Nuolaida</td>
-            				<td class="total"> $invoice->discount </td>
+            				<td class="total"> INVOICE_DISCOUNT </td>
 						</tr>
 					<tr>
 						<td colspan="5" class="grand total">Suma su PVM</td>
-						<td class="grand total"> $grandTotal </td>
+						<td class="grand total"> GRAND_TOTAL</td>
 					</tr>
 					<tr>
-	  					<td colspan="6"><strong> $words </strong></td>
+	  					<td colspan="6"><strong> WORDS </strong></td>
 					</tr>
 				</tbody>
 			</table>
 			<div id="notices">
 				<div>Pastabos:</div>
-				<div class="notice"> $invoice->notes </div>
+				<div class="notice"> INVOICE_NOTES </div>
             </div>
 		</main>
 	</body>
