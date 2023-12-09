@@ -1,228 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Sąskaita INVOICE_ID </title>
-		<style>
-      * { 
-        font-family: DejaVu Sans; 
-        font-size: 12px;
-      }
-			.clearfix:after {
-			  content: "";
-			  display: table;
-			  clear: both;
-			}
-			
-			a {
-			  color: #5D6975;
-			  text-decoration: underline;
-			}
-			
-			body {
-			  position: relative;
-			  color: #001028;
-			  background: #FFFFFF; 
-			  font-family: Arial, sans-serif; 
-			  font-size: 12px; 
-			  font-family: Arial;
-			}
-			
-			header {
-			  padding: 10px 0;
-			  margin-bottom: 30px;
-			}
-			
-			#logo {
-			  padding-bottom: 20px;
-			}
-			
-			#logo img {
-			  width: 150px;
-			}
-			
-			h1 {
-			  border-top: 1px solid  #5D6975;
-			  border-bottom: 1px solid  #5D6975;
-			  color: #5D6975;
-			  font-size: 2.4em;
-			  line-height: 1.4em;
-			  font-weight: normal;
-			  text-align: center;
-			  margin: 0 0 20px 0;
-			}
-			
-			#company {
-			  float: left;
-			}
-			
-			#company span {
-			  color: #5D6975;
-			  text-align: right;
-			  width: 52px;
-			  margin-right: 10px;
-			  display: inline-block;
-			  font-size: 0.8em;
-			}
-			
-			#project {
-			  float: right;
-			  text-align: right;
-			}
-			
-			#company div,
-			#project div {
-			  white-space: nowrap;        
-			}
-			
-			table {
-			  width: 100%;
-			  border-collapse: collapse;
-			  border-spacing: 0;
-			  margin-bottom: 20px;
-			}
-			
-			table tr:nth-child(2n-1) td {
-			  background: #F5F5F5;
-			}
-			
-			table th,
-			table td {
-			  text-align: center;
-			}
-			
-			table th {
-			  padding: 5px 10px;
-			  color: #5D6975;
-			  border-bottom: 1px solid #C1CED9;
-			  white-space: nowrap;        
-			  font-weight: normal;
-			}
-			
-			table .service,
-			table .desc {
-			  text-align: left;
-			}
-			
-			table td {
-			  padding: 10px;
-			  text-align: right;
-			}
-			
-			table td.service,
-			table td.desc {
-			  vertical-align: top;
-			}
-			
-			table td.unit,
-			table td.qty,
-			table td.total {
-			  font-size: 1em;
-			}
-			
-			table td.grand {
-			  border-top: 1px solid #5D6975;;
-			}
-			
-			#notices .notice {
-			  color: #5D6975;
-			  font-size: 1.2em;
-			}
-			
-			footer {
-			  color: #5D6975;
-			  width: 100%;
-			  height: 30px;
-			  position: absolute;
-			  bottom: 0;
-			  border-top: 1px solid #C1CED9;
-			  padding: 8px 0;
-			  text-align: center;
-			}
-			@page {
-				size: a4 portrait; 
-				margin-left: 48px;
-				margin-right: 48px;
-				padding: 0;
-			} 
-		</style>
-	</head>
-	<body>
-		<header class="clearfix">
-			<div id="logo">
-				<img src="../static/logo1.png" alt = "logo">
-			</div>
-			<h1>PVM Sąskaita faktūra Nr.  INVOICE_ID </h1>
-			
-			<div id="project">
-        <div> $client->name </div>
-				<div>Įmonės kodas: CLIENT_REG_CODE </div>
-				<div>PVM Kodas: CLIENT_VAT </div>
-				<div> $client->address </div>
-				<div>Išrašymo data: <strong> INVOICE_DATE </strong></div>
-				<div>Apmokėti iki: <strong> DUE_DATE </strong></div>
-				
-			</div>
-      <div id="company" class="clearfix">
-				<div> $company->name </div>
-				<div>Įmonės kodas: CLIENT_REG_CODE </div>
-                <div>PVM Kodas: CLIENT_VAT </div>
-				<div> COMPANY_ADRESS </div>
-				<div>Banko sąskaitos nr. <strong> COMPANY_BANK_ACCOUNT </strong></div>
-				<div><a href="tel: COMPANY_PHONE "> COMPANY_PHONE </a> <a href="mailto: COMPANY_EMAIL"> COMPANY_EMAIL </a></div>
-				<div>Pagal pasiūlymą:<strong> PAS- INVOICE_OFFER_ID </strong></div>
-			</div>
-		</header>
-		<main>
-			<table>
-				<thead>
-					<tr>
-						<th style="max-width: 1px;">Eil. Nr.</th>
-						<th class="desc">Pavadinimas</th>
-						<th>Mato vnt.</th>
-						<th>Kiekis</th>
-						<th>Kaina be PVM €</th>
-            			<th>Suma be PVM €</th>
-					</tr>
-				</thead>
-				<tbody>
-						<tr>
-							<td class="service"> LOOP_INDEX </td>
-							<td class="desc"> PRODUCT_NAME </td>
-							<td class="unit">vnt.</td>
-							<td class="qty"> PRODUCT_QUANT </td>
-							<td class="subTotal"> PRODUCT_SUBTOTAL </td>
-							<td class="total"> PRODUCT_TOTAL </td>
-						</tr>
-					<tr>
-						<td class="service">1</td>
-						<td class="desc"> INVOICE_NAME </td>
-						<td class="unit">vnt.</td>
-						<td class="qty">1</td>
-						<td class="subTotal"> TOTAL </td>
-						<td class="total"> TOTAL </td>
-					</tr>
-					<tr>
-						<td class="grand total" colspan="5">Be PVM</td>
-						<td class="grand total"> TOTAL </td>
-					</tr>
-					<tr>
-						<td colspan="5">PVM 21%</td>
-						<td class="total"> TOTAL </td>
-					</tr>
-          				<tr>
-							<td colspan="5">Nuolaida</td>
-            				<td class="total"> INVOICE_DISCOUNT </td>
-						</tr>
-					<tr>
-						<td colspan="5" class="grand total">Suma su PVM</td>
-						<td class="grand total"> GRAND_TOTAL</td>
-					</tr>
-					<tr>
-	  					<td colspan="6"><strong> WORDS </strong></td>
-					</tr>
-				</tbody>
-			</table>
-		</main>
-	</body>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>Sąskaita INVOICE_ID </title>
+      <style>
+         * { 
+         font-family: DejaVu Sans; 
+         font-size: 12px;
+         }
+         .clearfix:after {
+         content: "";
+         display: table;
+         clear: both;
+         }
+         a {
+         color: #5D6975;
+         text-decoration: underline;
+         }
+         body {
+         position: relative;
+         color: #001028;
+         background: #FFFFFF; 
+         font-family: Arial, sans-serif; 
+         font-size: 12px; 
+         font-family: Arial;
+         }
+         header {
+         padding: 10px 0;
+         margin-bottom: 30px;
+         }
+         #logo {
+         padding-bottom: 20px;
+         }
+         #logo img {
+         width: 150px;
+         }
+         h1 {
+         border-top: 1px solid  #5D6975;
+         border-bottom: 1px solid  #5D6975;
+         color: #5D6975;
+         font-size: 2.4em;
+         line-height: 1.4em;
+         font-weight: normal;
+         text-align: center;
+         margin: 0 0 20px 0;
+         }
+         #company {
+         float: left;
+         }
+         #company span {
+         color: #5D6975;
+         text-align: right;
+         width: 52px;
+         margin-right: 10px;
+         display: inline-block;
+         font-size: 0.8em;
+         }
+         #project {
+         float: right;
+         text-align: right;
+         }
+         #company div,
+         #project div {
+         white-space: nowrap;        
+         }
+         table {
+         width: 100%;
+         border-collapse: collapse;
+         border-spacing: 0;
+         margin-bottom: 20px;
+         }
+         table tr:nth-child(2n-1) td {
+         background: #F5F5F5;
+         }
+         table th,
+         table td {
+         text-align: center;
+         }
+         table th {
+         padding: 5px 10px;
+         color: #5D6975;
+         border-bottom: 1px solid #C1CED9;
+         white-space: nowrap;        
+         font-weight: normal;
+         }
+         table .service,
+         table .desc {
+         text-align: left;
+         }
+         table td {
+         padding: 10px;
+         text-align: right;
+         }
+         table td.service,
+         table td.desc {
+         vertical-align: top;
+         }
+         table td.unit,
+         table td.qty,
+         table td.total {
+         font-size: 1em;
+         }
+         table td.grand {
+         border-top: 1px solid #5D6975;;
+         }
+         #notices .notice {
+         color: #5D6975;
+         font-size: 1.2em;
+         }
+         footer {
+         color: #5D6975;
+         width: 100%;
+         height: 30px;
+         position: absolute;
+         bottom: 0;
+         border-top: 1px solid #C1CED9;
+         padding: 8px 0;
+         text-align: center;
+         }
+         @page {
+         size: a4 portrait; 
+         margin-left: 48px;
+         margin-right: 48px;
+         padding: 0;
+         } 
+      </style>
+   </head>
+   <body>
+      <header class="clearfix">
+         <div id="logo">
+            <img src="../static/logo1.png" alt = "logo">
+         </div>
+         <h1>PVM Sąskaita faktūra Nr.  INVOICE_ID </h1>
+         <div id="project">
+            <div> $client->name </div>
+            <div>Įmonės kodas: CLIENT_REG_CODE </div>
+            <div>PVM Kodas: CLIENT_VAT </div>
+            <div> $client->address </div>
+            <div>Išrašymo data: <strong> INVOICE_DATE </strong></div>
+            <div>Apmokėti iki: <strong> DUE_DATE </strong></div>
+         </div>
+         <div id="company" class="clearfix">
+            <div> $company->name </div>
+            <div>Įmonės kodas: CLIENT_REG_CODE </div>
+            <div>PVM Kodas: CLIENT_VAT </div>
+            <div> COMPANY_ADRESS </div>
+            <div>Banko sąskaitos nr. <strong> COMPANY_BANK_ACCOUNT </strong></div>
+            <div><a href="tel: COMPANY_PHONE "> COMPANY_PHONE </a> <a href="mailto: COMPANY_EMAIL"> COMPANY_EMAIL </a></div>
+            <div>Pagal pasiūlymą:<strong> PAS- INVOICE_OFFER_ID </strong></div>
+         </div>
+      </header>
+      <main>
+         <table>
+            <thead>
+               <tr>
+                  <th style="max-width: 1px;">Eil. Nr.</th>
+                  <th class="desc">Pavadinimas</th>
+                  <th>Mato vnt.</th>
+                  <th>Kiekis</th>
+                  <th>Kaina be PVM €</th>
+                  <th>Suma be PVM €</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td class="service"> LOOP_INDEX </td>
+                  <td class="desc"> PRODUCT_NAME </td>
+                  <td class="unit">vnt.</td>
+                  <td class="qty"> PRODUCT_QUANT </td>
+                  <td class="subTotal"> PRODUCT_SUBTOTAL </td>
+                  <td class="total"> PRODUCT_TOTAL </td>
+               </tr>
+               <tr>
+                  <td class="service">1</td>
+                  <td class="desc"> INVOICE_NAME </td>
+                  <td class="unit">vnt.</td>
+                  <td class="qty">1</td>
+                  <td class="subTotal"> TOTAL </td>
+                  <td class="total"> TOTAL </td>
+               </tr>
+               <tr>
+                  <td class="grand total" colspan="5">Be PVM</td>
+                  <td class="grand total"> TOTAL </td>
+               </tr>
+               <tr>
+                  <td colspan="5">PVM 21%</td>
+                  <td class="total"> TOTAL </td>
+               </tr>
+               <tr>
+                  <td colspan="5">Nuolaida</td>
+                  <td class="total"> INVOICE_DISCOUNT </td>
+               </tr>
+               <tr>
+                  <td colspan="5" class="grand total">Suma su PVM</td>
+                  <td class="grand total"> GRAND_TOTAL</td>
+               </tr>
+               <tr>
+                  <td colspan="6"><strong> WORDS </strong></td>
+               </tr>
+            </tbody>
+         </table>
+      </main>
+   </body>
 </html>
