@@ -12,14 +12,14 @@ namespace InvoicesBackend.Controllers
         }
 
         [HttpGet("list")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType<List<InvoiceDTO>>(StatusCodes.Status200OK)]
         public IActionResult List(DateOnly? startDate = null, DateOnly? endDate = null)
         {
             return Ok();
         }
 
         [HttpGet("create")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType<InvoiceDTO>(StatusCodes.Status201Created)]
         public IActionResult Create(InvoiceForCreationDTO invoiceForCreationDTO)
         {
             return Created();
