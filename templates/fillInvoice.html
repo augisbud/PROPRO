@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="csrf-token"
+      content="JjNI1oEJPFNqFwGfOMweyaY7TYFJfpwg5TaNTYUs"
+    />
+    <title>Reikalų ministėrija</title>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://go.ginetas.lt/img/favicon.ico"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://go.ginetas.lt/img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://go.ginetas.lt/img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://go.ginetas.lt/img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="https://go.ginetas.lt/img/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="https://go.ginetas.lt/img/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="theme-color" content="#000000" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Scripts -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+    <!-- Styles -->
+    <!-- Livewire Styles -->
+    <style>
+      [wire\:loading],
+      [wire\:loading\.delay],
+      [wire\:loading\.inline-block],
+      [wire\:loading\.inline],
+      [wire\:loading\.block],
+      [wire\:loading\.flex],
+      [wire\:loading\.table],
+      [wire\:loading\.grid],
+      [wire\:loading\.inline-flex] {
+        display: none;
+      }
+      [wire\:loading\.delay\.shortest],
+      [wire\:loading\.delay\.shorter],
+      [wire\:loading\.delay\.short],
+      [wire\:loading\.delay\.long],
+      [wire\:loading\.delay\.longer],
+      [wire\:loading\.delay\.longest] {
+        display: none;
+      }
+      [wire\:offline] {
+        display: none;
+      }
+      [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+      }
+      input:-webkit-autofill,
+      select:-webkit-autofill,
+      textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+      }
+      @keyframes livewireautofill {
+        from {
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <!-- Example for FontAwesome Free Solid icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://go.ginetas.lt/build/assets/app-47f6a113.css"
+    />
+    <link
+      rel="modulepreload"
+      href="https://go.ginetas.lt/build/assets/app-5289ab45.js"
+    />
+    <link
+      rel="stylesheet"
+      href="https://go.ginetas.lt/build/assets/app-47f6a113.css"
+    />
+    <script
+      type="module"
+      src="https://go.ginetas.lt/build/assets/app-5289ab45.js"
+    ></script>
+  </head>
+  <body class="font-sans antialiased">
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+      <nav
+        x-data="{ open: false }"
+        class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700"
+      >
+        <!-- Primary Navigation Menu -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="flex">
+              <!-- Logo -->
+              <div class="shrink-0 flex items-center">
+                <a href="https://go.ginetas.lt/dashboard">
+                  <svg
+                    viewBox="0 0 316 316"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200"
+                  >
+                    <path
+                      d="M305.8 81.125C305.77 80.995 305.69 80.885 305.65 80.755C305.56 80.525 305.49 80.285 305.37 80.075C305.29 79.935 305.17 79.815 305.07 79.685C304.94 79.515 304.83 79.325 304.68 79.175C304.55 79.045 304.39 78.955 304.25 78.845C304.09 78.715 303.95 78.575 303.77 78.475L251.32 48.275C249.97 47.495 248.31 47.495 246.96 48.275L194.51 78.475C194.33 78.575 194.19 78.725 194.03 78.845C193.89 78.955 193.73 79.045 193.6 79.175C193.45 79.325 193.34 79.515 193.21 79.685C193.11 79.815 192.99 79.935 192.91 80.075C192.79 80.285 192.71 80.525 192.63 80.755C192.58 80.875 192.51 80.995 192.48 81.125C192.38 81.495 192.33 81.875 192.33 82.265V139.625L148.62 164.795V52.575C148.62 52.185 148.57 51.805 148.47 51.435C148.44 51.305 148.36 51.195 148.32 51.065C148.23 50.835 148.16 50.595 148.04 50.385C147.96 50.245 147.84 50.125 147.74 49.995C147.61 49.825 147.5 49.635 147.35 49.485C147.22 49.355 147.06 49.265 146.92 49.155C146.76 49.025 146.62 48.885 146.44 48.785L93.99 18.585C92.64 17.805 90.98 17.805 89.63 18.585L37.18 48.785C37 48.885 36.86 49.035 36.7 49.155C36.56 49.265 36.4 49.355 36.27 49.485C36.12 49.635 36.01 49.825 35.88 49.995C35.78 50.125 35.66 50.245 35.58 50.385C35.46 50.595 35.38 50.835 35.3 51.065C35.25 51.185 35.18 51.305 35.15 51.435C35.05 51.805 35 52.185 35 52.575V232.235C35 233.795 35.84 235.245 37.19 236.025L142.1 296.425C142.33 296.555 142.58 296.635 142.82 296.725C142.93 296.765 143.04 296.835 143.16 296.865C143.53 296.965 143.9 297.015 144.28 297.015C144.66 297.015 145.03 296.965 145.4 296.865C145.5 296.835 145.59 296.775 145.69 296.745C145.95 296.655 146.21 296.565 146.45 296.435L251.36 236.035C252.72 235.255 253.55 233.815 253.55 232.245V174.885L303.81 145.945C305.17 145.165 306 143.725 306 142.155V82.265C305.95 81.875 305.89 81.495 305.8 81.125ZM144.2 227.205L100.57 202.515L146.39 176.135L196.66 147.195L240.33 172.335L208.29 190.625L144.2 227.205ZM244.75 114.995V164.795L226.39 154.225L201.03 139.625V89.825L219.39 100.395L244.75 114.995ZM249.12 57.105L292.81 82.265L249.12 107.425L205.43 82.265L249.12 57.105ZM114.49 184.425L96.13 194.995V85.305L121.49 70.705L139.85 60.135V169.815L114.49 184.425ZM91.76 27.425L135.45 52.585L91.76 77.745L48.07 52.585L91.76 27.425ZM43.67 60.135L62.03 70.705L87.39 85.305V202.545V202.555V202.565C87.39 202.735 87.44 202.895 87.46 203.055C87.49 203.265 87.49 203.485 87.55 203.695V203.705C87.6 203.875 87.69 204.035 87.76 204.195C87.84 204.375 87.89 204.575 87.99 204.745C87.99 204.745 87.99 204.755 88 204.755C88.09 204.905 88.22 205.035 88.33 205.175C88.45 205.335 88.55 205.495 88.69 205.635L88.7 205.645C88.82 205.765 88.98 205.855 89.12 205.965C89.28 206.085 89.42 206.225 89.59 206.325C89.6 206.325 89.6 206.325 89.61 206.335C89.62 206.335 89.62 206.345 89.63 206.345L139.87 234.775V285.065L43.67 229.705V60.135ZM244.75 229.705L148.58 285.075V234.775L219.8 194.115L244.75 179.875V229.705ZM297.2 139.625L253.49 164.795V114.995L278.85 100.395L297.21 89.825V139.625H297.2Z"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <!-- Navigation Links -->
+              <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <a
+                  class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out"
+                  href="https://go.ginetas.lt/offers"
+                >
+                  Offers
+                </a>
+              </div>
+              <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <a
+                  class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out"
+                  href="https://go.ginetas.lt/invoice"
+                >
+                  Invoices
+                </a>
+              </div>
+              <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <a
+                  class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out"
+                  href="https://go.ginetas.lt/recurring"
+                >
+                  Recurring Invoices
+                </a>
+              </div>
+              <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <a
+                  class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out"
+                  href="https://go.ginetas.lt/clients"
+                >
+                  Clients
+                </a>
+              </div>
+              <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <a
+                  class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out"
+                  href="https://go.ginetas.lt/providers"
+                >
+                  Providers
+                </a>
+              </div>
+              <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <a
+                  class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out"
+                  href="https://go.ginetas.lt/profits"
+                >
+                  Profits
+                </a>
+              </div>
+            </div>
+            <!-- Settings Dropdown -->
+            <div class="hidden sm:flex sm:items-center sm:ml-6">
+              <button
+                id="updateBK"
+                class="bg-emerald-600 hover:bg-emerald-800 text-white font-bold px-3 rounded-full"
+                title="Atnaujinti BK produktus iš XML"
+              >
+                Atnaujinti BK
+              </button>
+              <div
+                class="relative"
+                x-data="{ open: false }"
+                @click.outside="open = false"
+                @close.stop="open = false"
+              >
+                <div @click="open = ! open">
+                  <button
+                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
+                  >
+                    <div>Augustas Budnikas</div>
+                    <div class="ml-1">
+                      <svg
+                        class="fill-current h-4 w-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+                <div
+                  x-show="open"
+                  x-transition:enter="transition ease-out duration-200"
+                  x-transition:enter-start="transform opacity-0 scale-95"
+                  x-transition:enter-end="transform opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-75"
+                  x-transition:leave-start="transform opacity-100 scale-100"
+                  x-transition:leave-end="transform opacity-0 scale-95"
+                  class="absolute z-50 mt-2 w-48 rounded-md shadow-lg origin-top-right right-0"
+                  style="display: none"
+                  @click="open = false"
+                >
+                  <div
+                    class="rounded-md ring-1 ring-black ring-opacity-5 py-1 bg-white dark:bg-gray-700"
+                  >
+                    <a
+                      class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
+                      href="https://go.ginetas.lt/profile"
+                      >Profile</a
+                    >
+                    <!-- Authentication -->
+                    <form method="POST" action="https://go.ginetas.lt/logout">
+                      <input
+                        type="hidden"
+                        name="_token"
+                        value="JjNI1oEJPFNqFwGfOMweyaY7TYFJfpwg5TaNTYUs"
+                      />
+                      <a
+                        class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out"
+                        href="https://go.ginetas.lt/logout"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();"
+                        >Log Out</a
+                      >
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Hamburger -->
+            <div class="-mr-2 flex items-center sm:hidden">
+              <button
+                @click="open = ! open"
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out"
+              >
+                <svg
+                  class="h-6 w-6"
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    :class="{'hidden': open, 'inline-flex': ! open }"
+                    class="inline-flex"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                  <path
+                    :class="{'hidden': ! open, 'inline-flex': open }"
+                    class="hidden"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Responsive Navigation Menu -->
+        <div
+          :class="{'block': open, 'hidden': ! open}"
+          class="hidden sm:hidden"
+        >
+          <div class="pt-2 pb-3 space-y-1">
+            <a
+              class="block w-full pl-3 pr-4 py-2 border-l-4 border-transparent text-left text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 focus:outline-none focus:text-gray-800 dark:focus:text-gray-200 focus:bg-gray-50 dark:focus:bg-gray-700 focus:border-gray-300 dark:focus:border-gray-600 transition duration-150 ease-in-out"
+              href="https://go.ginetas.lt/dashboard"
+            >
+              Dashboard
+            </a>
+          </div>
+          <!-- Responsive Settings Options -->
+          <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
+            <div class="px-4">
+              <div
+                class="font-medium text-base text-gray-800 dark:text-gray-200"
+              >
+                Augustas Budnikas
+              </div>
+              <div class="font-medium text-sm text-gray-500">
+                budnikiukas@gmail.com
+              </div>
+            </div>
+            <div class="mt-3 space-y-1">
+              <a
+                class="block w-full pl-3 pr-4 py-2 border-l-4 border-transparent text-left text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 focus:outline-none focus:text-gray-800 dark:focus:text-gray-200 focus:bg-gray-50 dark:focus:bg-gray-700 focus:border-gray-300 dark:focus:border-gray-600 transition duration-150 ease-in-out"
+                href="https://go.ginetas.lt/profile"
+              >
+                Profile
+              </a>
+              <!-- Authentication -->
+              <form method="POST" action="https://go.ginetas.lt/logout">
+                <input
+                  type="hidden"
+                  name="_token"
+                  value="JjNI1oEJPFNqFwGfOMweyaY7TYFJfpwg5TaNTYUs"
+                />
+                <a
+                  class="block w-full pl-3 pr-4 py-2 border-l-4 border-transparent text-left text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 focus:outline-none focus:text-gray-800 dark:focus:text-gray-200 focus:bg-gray-50 dark:focus:bg-gray-700 focus:border-gray-300 dark:focus:border-gray-600 transition duration-150 ease-in-out"
+                  href="https://go.ginetas.lt/logout"
+                  onclick="event.preventDefault();
+                           this.closest('form').submit();"
+                >
+                  Log Out
+                </a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Page Heading -->
+      <header class="bg-white dark:bg-gray-800 shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <h2
+            class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"
+          >
+            Sąskaitos išrašymas
+            <button
+              type="submit"
+              class="bg-green-500 hover:bg-green-700 text-white font-bold px-3 rounded-full float-right ml-1"
+              form="newInvoice"
+              data-send="1"
+            >
+              Išrašyti ir siųsti
+            </button>
+            <button
+              type="submit"
+              class="bg-green-500 hover:bg-green-700 text-white font-bold px-3 rounded-full float-right"
+              form="newInvoice"
+              data-send="0"
+            >
+              Išrašyti
+            </button>
+          </h2>
+        </div>
+      </header>
+      <!-- Page Content -->
+      <main>
+        <form id="newInvoice" action="/invoice" method="POST">
+          <input
+            type="hidden"
+            name="_token"
+            value="JjNI1oEJPFNqFwGfOMweyaY7TYFJfpwg5TaNTYUs"
+          />
+          <div class="pt-3">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+              <div
+                class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg"
+              >
+                <div class="p-6 text-gray-900">
+                  <div class="grid grid-cols-2 dark:text-gray-400">
+                    <div class="pr-10 dark:text-gray-400">
+                      <div class="pr-10">
+                        <p class="text-xl dark:text-gray-400">Pavadinimas</p>
+                        <hr class="pt-2 pb-2" />
+                        <input
+                          type="text"
+                          class="border border-gray-300 p-2 mb-1 rounded w-full"
+                          id="name"
+                          name="name"
+                          value=""
+                          placeholder="Suvedus pirkėjo duomenis bus pradėta automatiškai..."
+                          required="required"
+                          autocomplete="off"
+                        />
+                        <div class="grid grid-cols-2 dark:text-gray-400">
+                          <div class="pr-2">
+                            <div class="grid grid-cols-2">
+                              <div class="pl-1">
+                                <p class="text-xl">Suma</p>
+                                <hr class="pt-2" />
+                                <p>
+                                  be PVM:
+                                  <strong name="price" id="price">0</strong>€
+                                </p>
+                                <p>
+                                  su PVM:
+                                  <strong name="priceVAT" id="priceVAT"
+                                    >0</strong
+                                  >€
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="pl-2">
+                            <div class="grid grid-cols-2">
+                              <div class="pl-1">
+                                <p class="text-xl dark:text-gray-400">
+                                  Nuolaida
+                                </p>
+                                <hr class="pt-2 pb-2" />
+                                <div class="relative">
+                                  <input
+                                    type="number"
+                                    id="discount"
+                                    name="discount"
+                                    class="border border-gray-300 p-2 pl-4 mb-1 rounded w-full"
+                                    min="0"
+                                    value="0"
+                                  />
+                                  <span
+                                    class="absolute right-7 top-2.5 text-gray-500"
+                                    >€</span
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="buyerData" class="pl-10 dark:text-gray-600">
+                      <p class="text-xl dark:text-gray-400">Pirkėjas</p>
+                      <hr class="pt-2 pb-2" />
+                      <input
+                        type="number"
+                        id="buyerID"
+                        name="buyerID"
+                        value=""
+                        hidden
+                      />
+                      <input
+                        type="text"
+                        class="border border-gray-300 p-2 mb-1 rounded w-full"
+                        id="buyerName"
+                        name="buyerName"
+                        value=""
+                        placeholder="Pirkėjo pavadinimas"
+                        required="required"
+                        autocomplete="off"
+                      />
+                      <div class="grid grid-cols-2 mb-1">
+                        <div>
+                          <input
+                            type="text"
+                            class="border border-gray-300 p-2 rounded w-full"
+                            id="buyerRegistrationCode"
+                            name="buyerRegistrationCode"
+                            value=""
+                            placeholder="Įmonės kodas"
+                            autocomplete="off"
+                          />
+                        </div>
+                        <div>
+                          <input
+                            type="text"
+                            class="border border-gray-300 p-2 rounded w-full"
+                            id="buyerVAT"
+                            name="buyerVAT"
+                            value=""
+                            placeholder="PVM Kodas"
+                            autocomplete="off"
+                          />
+                        </div>
+                      </div>
+                      <input
+                        type="text"
+                        class="border border-gray-300 p-2 mb-1 rounded w-full"
+                        id="buyerAddress"
+                        name="buyerAddress"
+                        value=""
+                        placeholder="Adresas"
+                        autocomplete="off"
+                      />
+                      <div class="grid grid-cols-2 mb-1">
+                        <div>
+                          <input
+                            type="text"
+                            class="border border-gray-300 p-2 rounded w-full"
+                            id="buyerEmail"
+                            name="buyerEmail"
+                            value=""
+                            placeholder="El. Paštas"
+                            autocomplete="off"
+                          />
+                        </div>
+                        <div>
+                          <input
+                            type="text"
+                            class="border border-gray-300 p-2 rounded w-full"
+                            id="buyerPhone"
+                            name="buyerPhone"
+                            value=""
+                            placeholder="Telefono numeris"
+                            autocomplete="off"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+              <div
+                class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg"
+              >
+                <div class="p-6 text-gray-900">
+                  <div class="grid grid-cols-2">
+                    <div class="text-xl dark:text-gray-400">Produktai</div>
+                    <div>
+                      <button
+                        type="button"
+                        id="add-button"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-3 rounded-full float-right"
+                      >
+                        Pridėti
+                      </button>
+                    </div>
+                  </div>
+                  <hr />
+                  <div id="product-rows" class="dark:text-gray-600">
+                    <div class="space-y-4 product-row">
+                      <div
+                        class="w-full flex flex-col sm:flex-row sm:space-x-4 dark:text-gray-400"
+                      >
+                        <input
+                          type="number"
+                          id="products[][id]"
+                          name="products[][id]"
+                          hidden
+                        />
+                        <div class="w-full sm:w-1/2">
+                          <label for="products[][name]" class="block"
+                            >Pavadinimas</label
+                          >
+                          <input
+                            type="text"
+                            id="products[][name]"
+                            name="products[][name]"
+                            class="dark:text-gray-600 border border-gray-300 p-2 rounded w-full"
+                            placeholder="Įveskite produkto pavadinimą"
+                          />
+                        </div>
+                        <div class="w-full sm:w-1/12">
+                          <label for="products[][quantity]" class="block"
+                            >Kiekis</label
+                          >
+                          <input
+                            type="number"
+                            id="products[][quantity]"
+                            name="products[][quantity]"
+                            class="dark:text-gray-600 quantity border border-gray-300 p-2 rounded w-full"
+                            min="1"
+                            value="1"
+                          />
+                        </div>
+
+                        <div class="w-full sm:w-1/12">
+                          <label for="products[][quantity_type]" class="block"
+                            >Mat. tipas</label
+                          >
+                          <select
+                            id="products[][quantity_type]"
+                            name="products[][quantity_type]"
+                            class="dark:text-gray-900 quantity border border-gray-300 p-2 rounded w-full"
+                          >
+                            <option value="vnt.">vnt.</option>
+                            <option value="m2">m2</option>
+                            <option value="m3">m3</option>
+                            <option value="val.">val.</option>
+                          </select>
+                        </div>
+
+                        <div class="w-full sm:w-1/12">
+                          <label for="products[][price]" class="block"
+                            >Kaina (€)</label
+                          >
+                          <input
+                            type="number"
+                            id="products[][price]"
+                            name="products[][price]"
+                            class="dark:text-gray-600 price border border-gray-300 p-2 rounded w-full"
+                            min="0"
+                            value="0"
+                            step=".01"
+                          />
+                        </div>
+                        <div class="w-full sm:w-1/12">
+                          <label for="products[][sum]" class="block"
+                            >Suma (€)</label
+                          >
+                          <input
+                            type="number"
+                            id="products[][sum]"
+                            name="products[][sum]"
+                            class="dark:text-gray-600 sum border border-gray-300 p-2 rounded w-full"
+                            min="0"
+                            value="0"
+                            step=".01"
+                            disabled
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- PRODUCT ROWS -->
+        <script>
+          const addButton = document.getElementById("add-button");
+          const productRows = document.getElementById("product-rows");
+
+          addButton.addEventListener("click", () => {
+            let rowCount =
+              document.getElementsByClassName("product-row").length;
+
+            let markup = document.querySelector(".markup").value;
+
+            const newRow = document.createElement("div");
+            newRow.className = "space-y-4 product-row";
+            newRow.innerHTML =
+              `
+                       <div class="w-full flex flex-col sm:flex-row sm:space-x-4 mt-2">
+                           <input type="number" id="products[][id]" name="products[][id]" hidden>
+                           <div class="w-full sm:w-1/2">
+                               <input type="text" id="products[][name]" name="products[][name]" class="border border-gray-300 p-2 rounded w-full">
+                               <div class="relative">
+                                   <button type="button" class="search-button text-white absolute right-1 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-2" style="bottom: 0.2rem;">Search</button>
+                               </div>    
+                           </div>
+                           <div class="w-full sm:w-1/12">
+                               <input type="number" id="products[][quantity]" name="products[][quantity]" class="quantity border border-gray-300 p-2 rounded w-full" min="1" value="1">
+                           </div>
+                           <div class="w-full sm:w-1/12">
+                               <input type="number" id="products[][price]" name="products[][price]" class="price border border-gray-300 p-2 rounded w-full" min="0" value="0" step=".01">
+                           </div>
+                           <div style="width: 3%;">
+                               <input type="checkbox" id="products[][reverseVAT]" name="products[][reverseVAT]" class="mt-3 rounded text-blue-500 focus:ring-0 h-5 w-5" title="Kaina pateikiama su PVM">
+                           </div>
+                           <div class="w-full sm:w-1/12">
+                               <input type="number" id="products[][markup]" name="products[][markup]" class="markup border border-gray-300 p-2 rounded w-full" min="0" value="` +
+              markup +
+              `" step=".01">
+                           </div>
+                           <div class="w-full sm:w-1/12">
+                               <input type="number" id="products[][sum]" name="products[][sum]" class="sum border border-gray-300 p-2 rounded w-full" min="0" value="0" step=".01" disabled>
+                           </div>
+                           <div class="w-full sm:w-auto">
+                               <button type="button" class="delete-button bg-red-500 hover:bg-red-700 text-white font-bold rounded p-2 w-full">Ištrinti</button>
+                           </div>
+                       </div>
+                   `;
+            productRows.appendChild(newRow);
+            newRow
+              .querySelector(".delete-button")
+              .addEventListener("click", () => {
+                newRow.remove();
+              });
+
+            newRow
+              .querySelector(".search-button")
+              .addEventListener("click", function (event) {
+                var inputElement = event.currentTarget
+                  .closest(".product-row")
+                  .querySelector('input[name="products[][name]"]');
+
+                popup(inputElement);
+              });
+
+            var inputs = newRow.querySelectorAll(".price, .quantity, .markup");
+            inputs.forEach(function (input) {
+              input.addEventListener("input", () => {
+                calculateSum(newRow);
+              });
+              input.addEventListener("change", () => {
+                calculateSum(newRow);
+              });
+            });
+            newRow.addEventListener("input", getProducts);
+          });
+
+          var row = document.querySelector("#product-rows > div");
+          var inputs = row.querySelectorAll(".price, .quantity, .markup");
+
+          inputs.forEach(function (input) {
+            input.addEventListener("input", () => {
+              calculateSum(row);
+            });
+            input.addEventListener("change", () => {
+              calculateSum(row);
+            });
+          });
+
+          document.querySelector("#markup").addEventListener("input", () => {
+            var productRows = document.querySelectorAll("#product-rows > div");
+
+            productRows.forEach(function (row) {
+              row.querySelector(".markup").value =
+                document.querySelector("#markup").value;
+              calculateSum(row);
+            });
+          });
+
+          function calculateSum(newRow) {
+            var sum =
+              newRow.querySelector(".price").value *
+              (1 + newRow.querySelector(".markup").value / 100) *
+              newRow.querySelector(".quantity").value *
+              100;
+            newRow.querySelector(".sum").value = (parseInt(sum) / 100).toFixed(
+              2
+            );
+
+            getProducts();
+          }
+        </script>
+        <!-- POPUP SEARCH  -->
+        <script>
+          document
+            .querySelector(".search-button")
+            .addEventListener("click", function (event) {
+              var inputElement = event.currentTarget
+                .closest(".product-row")
+                .querySelector('input[name="products[][name]"]');
+
+              popup(inputElement);
+            });
+
+          function popup(inputElement) {
+            let debounceTimeout;
+
+            let sortField = "name"; // default sort field
+            let sortOrder = "asc"; // default sort order
+
+            const fetchProducts = (
+              searchTerm,
+              category,
+              inStock,
+              sortField = "name",
+              sortOrder = "asc"
+            ) => {
+              console.log(1);
+              return fetch("/products/search", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "X-CSRF-TOKEN": document
+                    .getElementById("newInvoice")
+                    .querySelector('input[name="_token"]').value,
+                },
+                body: JSON.stringify({
+                  searchTerm,
+                  category,
+                  inStock,
+                  sortField,
+                  sortOrder,
+                }),
+              })
+                .then((response) => response.json())
+                .catch((error) => {
+                  console.error("Error searching products:", error);
+                });
+            };
+
+            const setupSortableHeaders = () => {
+              const headers = document.querySelectorAll(".sortable-header");
+              headers.forEach((header) => {
+                header.addEventListener("click", function () {
+                  // Extract sort field from data attribute
+                  const field = this.getAttribute("data-sort-field");
+                  if (field === sortField) {
+                    sortOrder = sortOrder === "asc" ? "desc" : "asc"; // Toggle order if the field is the same
+                  } else {
+                    sortField = field;
+                    sortOrder = "asc"; // Default order
+                  }
+
+                  const searchTerm =
+                    document.getElementById("swal-input").value;
+                  document
+                    .getElementById("category")
+                    .addEventListener("input", performSearch);
+                  const inStock = document.getElementById("inStock").checked
+                    ? 1
+                    : 0;
+                  fetchProducts(
+                    searchTerm,
+                    category,
+                    inStock,
+                    sortField,
+                    sortOrder
+                  ).then(updateTable);
+                });
+              });
+            };
+
+            function performSearch() {
+              const searchTerm = document.getElementById("swal-input").value;
+              const category = document.getElementById("category").value;
+              const inStock = document.getElementById("inStock").checked
+                ? 1
+                : 0;
+
+              // Clear the existing debounce timeout
+              clearTimeout(debounceTimeout);
+
+              if (searchTerm.length >= 4) {
+                // Set a new debounce timeout
+                debounceTimeout = setTimeout(() => {
+                  fetchProducts(searchTerm, category, inStock).then(
+                    updateTable
+                  );
+                }, 300); // Delay in ms
+              }
+            }
+
+            const updateTable = (data) => {
+              const tableBody = document.getElementById("product-table-body");
+
+              // Clear the table body
+              tableBody.innerHTML = "";
+
+              // Populate the table body with new data
+              if (data && data.length > 0) {
+                data.forEach((product) => {
+                  const row = document.createElement("tr");
+                  row.className =
+                    "product-row hover:bg-gray-100 cursor-pointer";
+                  row.setAttribute("data-product-id", product.id);
+                  row.setAttribute("data-product-name", product.name);
+                  row.setAttribute("data-product-price", product.price);
+                  row.innerHTML = `
+                                   <td class="custom-td"><img src="${product.image}" class="w-10 h-10 rounded-full" /></td>
+                                   <td class="custom-td">${product.name}</td>
+                                   <td class="custom-td">${product.price}</td>
+                                   <td class="custom-td">${product.description}</td>
+                                   <td class="custom-td">${product.quantity}</td>
+                               `;
+                  row.addEventListener("click", (event) => {
+                    inputElement.value =
+                      event.currentTarget.getAttribute("data-product-name");
+                    inputElement
+                      .closest(".product-row")
+                      .querySelector('input[name="products[][id]"]').value =
+                      event.currentTarget.getAttribute("data-product-id");
+                    inputElement
+                      .closest(".product-row")
+                      .querySelector('input[name="products[][price]"]').value =
+                      event.currentTarget.getAttribute("data-product-price");
+                    calculateSum(inputElement.closest(".product-row"));
+                    Swal.close();
+                  });
+                  tableBody.appendChild(row);
+                });
+              }
+            };
+
+            Swal.fire({
+              title: "Search Products",
+              html:
+                `
+                           <div style="display: flex; align-items: center;">
+                               <input id="swal-input" class="swal2-input" value="` +
+                inputElement.value +
+                `"/>
+                               <input id="category" class="swal2-input" placeholder="Kategorija"/>
+                               <div style="margin-left: 10px;">
+                                   <label for="inStock"> In Stock </label>
+                                   <input type="checkbox" id="inStock" name="inStock" checked/>
+                               </div>
+                           </div>
+                           
+                           <style>
+                               .custom-td {
+                                   padding: 2px 4px;
+                                   font-size: 0.75rem;
+                                   text-align: left;
+                               }
+                               .custom-table {
+                                   width: 40%; /* You can adjust this value */
+                               }
+                           </style>
+                           <table class="min-w-full divide-y divide-gray-200 custom-table">
+                               <thead class="bg-gray-50">
+                                   <tr>
+                                       <th class="custom-td text-xs font-medium text-gray-500 uppercase tracking-wider">Image</th>
+                                       <th class="custom-td text-xs font-medium text-gray-500 uppercase tracking-wider sortable-header" data-sort-field="name">Name</th>
+                                       <th class="custom-td text-xs font-medium text-gray-500 uppercase tracking-wider sortable-header" data-sort-field="price">Price</th>
+                                       <th class="custom-td text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                       <th class="custom-td text-xs font-medium text-gray-500 uppercase tracking-wider sortable-header" data-sort-field="quantity">Quantity</th>
+                                   </tr>
+                               </thead>
+                               <tbody id="product-table-body" class="bg-white divide-y divide-gray-200"></tbody>
+                           </table>
+                       `,
+              width: "50%",
+              customClass: {
+                content: "w-full", // Make content take full width
+              },
+              showConfirmButton: false, // Hide the confirm button
+              didOpen: () => {
+                document
+                  .getElementById("swal-input")
+                  .addEventListener("input", performSearch);
+                document
+                  .getElementById("category")
+                  .addEventListener("input", performSearch);
+                document
+                  .getElementById("inStock")
+                  .addEventListener("change", performSearch);
+
+                setupSortableHeaders();
+
+                let debounceTimeout = null;
+              },
+            });
+
+            // Fetch initial data
+            fetchProducts(inputElement.value, "", 1).then(updateTable);
+          }
+        </script>
+        <!-- SEARCH -->
+        <script>
+          function debounce(func, wait) {
+            let timeout;
+            return function (...args) {
+              const context = this;
+              clearTimeout(timeout);
+              timeout = setTimeout(() => func.apply(context, args), wait);
+            };
+          }
+
+          function createDropdown(element) {
+            const dropdown = document.createElement("div");
+            dropdown.classList.add(
+              "search-dropdown",
+              "absolute",
+              "bg-white",
+              "border",
+              "border-gray-300",
+              "mt-2",
+              "py-2",
+              "rounded",
+              "hidden",
+              "max-h-60",
+              "overflow-auto"
+            );
+
+            if (element.nextSibling)
+              element.parentNode.insertBefore(dropdown, element.nextSibling);
+            else element.parentNode.appendChild(dropdown);
+
+            return dropdown;
+          }
+
+          function handleSearchInput(
+            inputName,
+            minLength,
+            searchFunction,
+            displayResultsCallback
+          ) {
+            document.addEventListener("DOMContentLoaded", () => {
+              const productRows = document.getElementById("product-rows");
+              const buyerData = document.getElementById("buyerData");
+
+              const handleInputEvent = (event) => {
+                const target = event.target;
+                if (target.tagName === "INPUT" && target.name === inputName) {
+                  if (target.value.length >= minLength) {
+                    debounce(
+                      () =>
+                        searchFunction(
+                          target.value,
+                          target,
+                          displayResultsCallback
+                        ),
+                      300
+                    )();
+                  } else {
+                    const dropdown =
+                      target.parentElement.querySelector(".search-dropdown");
+                    if (dropdown) {
+                      dropdown.classList.add("hidden");
+                    }
+                  }
+                }
+              };
+
+              productRows.addEventListener("input", handleInputEvent);
+              buyerData.addEventListener("input", handleInputEvent);
+
+              document.addEventListener("click", (event) => {
+                const target = event.target;
+                if (target.tagName !== "INPUT" || target.name !== inputName) {
+                  document
+                    .querySelectorAll(".search-dropdown")
+                    .forEach((dropdown) => {
+                      dropdown.classList.add("hidden");
+                    });
+                }
+              });
+            });
+          }
+
+          function searchProducts(
+            searchTerm,
+            inputElement,
+            displayResultsCallback
+          ) {
+            fetch("/products/search", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document
+                  .getElementById("newInvoice")
+                  .querySelector('input[name="_token"]').value,
+              },
+              body: JSON.stringify({ searchTerm }),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                displayResultsCallback(data, inputElement);
+              })
+              .catch((error) => {
+                console.error("Error searching products:", error);
+              });
+          }
+          function searchBuyers(
+            searchTerm,
+            searchBy,
+            inputElement,
+            displayResultsCallback
+          ) {
+            fetch("/clients/search", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document
+                  .getElementById("newInvoice")
+                  .querySelector('input[name="_token"]').value,
+              },
+              body: JSON.stringify({ searchTerm, searchBy }),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                displayResultsCallback(data, inputElement);
+              })
+              .catch((error) => {
+                console.error("Error searching buyers:", error);
+              });
+          }
+
+          function searchBuyersByName(
+            searchTerm,
+            inputElement,
+            displayResultsCallback
+          ) {
+            searchBuyers(
+              searchTerm,
+              "name",
+              inputElement,
+              displayResultsCallback
+            );
+          }
+
+          function searchBuyersByRegistrationCode(
+            searchTerm,
+            inputElement,
+            displayResultsCallback
+          ) {
+            searchBuyers(
+              searchTerm,
+              "registrationCode",
+              inputElement,
+              displayResultsCallback
+            );
+          }
+
+          function displayProductResults(results, inputElement) {
+            let dropdown =
+              inputElement.parentElement.querySelector(".search-dropdown");
+            if (!dropdown) {
+              dropdown = createDropdown(inputElement);
+            }
+            dropdown.innerHTML = "";
+
+            if (results.length > 0) {
+              results.forEach((result) => {
+                const resultItem = document.createElement("div");
+                resultItem.classList.add(
+                  "p-2",
+                  "cursor-pointer",
+                  "hover:bg-gray-200"
+                );
+                resultItem.textContent = `${result.name} ${result.price}€ (${result.quantity} vnt)`;
+
+                resultItem.addEventListener("click", () => {
+                  inputElement.value = result.name;
+                  inputElement
+                    .closest(".product-row")
+                    .querySelector('input[name="products[][id]"]').value =
+                    result.id;
+                  inputElement
+                    .closest(".product-row")
+                    .querySelector('input[name="products[][price]"]').value =
+                    result.price;
+                  dropdown.classList.add("hidden");
+
+                  calculateSum(inputElement.closest(".product-row"));
+                });
+
+                dropdown.appendChild(resultItem);
+              });
+              dropdown.classList.remove("hidden");
+            } else {
+              dropdown.classList.add("hidden");
+            }
+          }
+
+          function displayBuyerResults(results, inputElement) {
+            let dropdown =
+              inputElement.parentElement.querySelector(".search-dropdown");
+            if (!dropdown) {
+              dropdown = createDropdown(inputElement);
+            }
+            dropdown.innerHTML = "";
+
+            if (results.length > 0) {
+              results.forEach((result) => {
+                const resultItem = document.createElement("div");
+                resultItem.classList.add(
+                  "p-2",
+                  "cursor-pointer",
+                  "hover:bg-gray-200"
+                );
+                resultItem.textContent = `${result.name} (${result.registrationCode})`;
+
+                resultItem.addEventListener("click", () => {
+                  document.querySelector('input[name="buyerID"]').value =
+                    result.id || "";
+                  document.querySelector('input[name="name"]').value =
+                    result.name || "";
+                  document.querySelector('input[name="buyerName"]').value =
+                    result.name || "";
+                  document.querySelector(
+                    'input[name="buyerRegistrationCode"]'
+                  ).value = result.registrationCode || "";
+                  document.querySelector('input[name="buyerVAT"]').value =
+                    result.VAT || "";
+                  document.querySelector('input[name="buyerAddress"]').value =
+                    result.address || "";
+                  document.querySelector('input[name="buyerPhone"]').value =
+                    result.phone || "";
+                  document.querySelector('input[name="buyerEmail"]').value =
+                    result.email || "";
+                  dropdown.classList.add("hidden");
+                });
+
+                dropdown.appendChild(resultItem);
+              });
+              dropdown.classList.remove("hidden");
+            } else {
+              dropdown.classList.add("hidden");
+            }
+          }
+
+          handleSearchInput(
+            "products[][name]",
+            4,
+            searchProducts,
+            displayProductResults
+          );
+          handleSearchInput(
+            "buyerName",
+            4,
+            searchBuyersByName,
+            displayBuyerResults
+          );
+          handleSearchInput(
+            "buyerRegistrationCode",
+            4,
+            searchBuyersByRegistrationCode,
+            displayBuyerResults
+          );
+
+          document.addEventListener("DOMContentLoaded", () => {
+            document
+              .querySelector('input[name="buyerName"]')
+              .addEventListener("input", (event) => {
+                document.querySelector('input[name="buyerID"]').value = 0;
+              });
+          });
+        </script>
+        <!-- CALCULATION -->
+        <script>
+          // This function retrieves all the products from the page
+          function getProducts() {
+            let products = document.querySelectorAll(
+              "div.w-full.flex.flex-col.sm\\:flex-row.sm\\:space-x-4"
+            );
+            let total = 0;
+
+            products.forEach((product) => {
+              let quantityElement = product.querySelector(".quantity");
+              let priceElement = product.querySelector(".price");
+              let markupElement = product.querySelector(".markup");
+
+              // Ensure both elements are found and contain numbers
+              if (
+                quantityElement &&
+                priceElement &&
+                markupElement &&
+                !isNaN(quantityElement.value) &&
+                !isNaN(priceElement.value) &&
+                !isNaN(markupElement.value)
+              ) {
+                let quantity = parseInt(quantityElement.value);
+                let price = parseFloat(priceElement.value);
+                let markup = parseFloat(markupElement.value);
+
+                total += quantity * price * (1 + markup / 100);
+              }
+            });
+            let priceElement = document.querySelector("#price");
+
+            if (!isNaN(total)) {
+              const VAT = parseFloat(
+                total * 1.21 - document.querySelector("#discount").value
+              ).toFixed(2);
+
+              priceElement.innerHTML = parseFloat((VAT * 100) / 121).toFixed(2);
+              document.querySelector("#priceVAT").innerHTML = (
+                parseInt(parseFloat((VAT * 100) / 121).toFixed(2) * 121) / 100
+              ).toFixed(2);
+            } else {
+              priceElement.innerHTML = "- ";
+              document.querySelector("#priceVAT").innerHTML = "- ";
+            }
+          }
+
+          getProducts();
+
+          // Add event listeners to all quantity and price inputs
+          document
+            .querySelectorAll(
+              'input[id^="products[][quantity]"], input[id^="products[][price]"]'
+            )
+            .forEach((input) => {
+              input.addEventListener("input", getProducts);
+            });
+
+          document
+            .querySelector("#buyerName")
+            .addEventListener("input", function (event) {
+              document.querySelector('input[name="name"]').value =
+                event.target.value;
+            });
+          document
+            .querySelector("#discount")
+            .addEventListener("input", getProducts);
+        </script>
+        <!-- FORM FETCH -->
+        <script>
+          let dataSendValue = null;
+
+          const submitButtons = document.querySelectorAll(
+            'button[type="submit"]'
+          );
+
+          submitButtons.forEach((button) => {
+            button.addEventListener("click", (event) => {
+              dataSendValue = event.target.dataset.send;
+            });
+          });
+
+          document
+            .getElementById("newInvoice")
+            .addEventListener("submit", async (event) => {
+              event.preventDefault();
+
+              const productRows = Array.from(
+                document.querySelectorAll(".product-row")
+              );
+              const products = productRows.map((row) => {
+                return {
+                  product_id: row.querySelector("input[name='products[][id]']")
+                    .value,
+                  name: row.querySelector("input[name='products[][name]']")
+                    .value,
+                  quantity: row.querySelector(
+                    "input[name='products[][quantity]']"
+                  ).value,
+                  price: row.querySelector("input[name='products[][price]']")
+                    .value,
+                  reverseVAT: row.querySelector(
+                    "input[name='products[][reverseVAT]']"
+                  ).checked,
+                  markup: row.querySelector("input[name='products[][markup]']")
+                    .value,
+                };
+              });
+
+              const otherFields = Array.from(
+                document.querySelectorAll(
+                  '#newInvoice input:not([name^="products"]), #newInvoice select:not([name^="products"])'
+                )
+              ).reduce((result, field) => {
+                result[field.name] = field.value;
+                return result;
+              }, {});
+
+              const data = {
+                ...otherFields,
+                set: document.getElementById("set").checked,
+                notes: document.getElementById("notes").value,
+                privateNotes: document.getElementById("privateNotes").value,
+                products: products,
+                send: dataSendValue,
+              };
+
+              const response = await fetch("/invoice", {
+                method: "POST",
+                headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+              });
+
+              console.log(dataSendValue);
+
+              if (!response.ok) {
+                const errorData = await response.json();
+                console.error("Error data:", errorData);
+              } else location.href = document.referrer;
+            });
+        </script>
+      </main>
+    </div>
+    <!-- Livewire Scripts -->
+    <script
+      src="/livewire/livewire.js?id=90730a3b0e7144480175"
+      data-turbo-eval="false"
+      data-turbolinks-eval="false"
+    ></script>
+    <script data-turbo-eval="false" data-turbolinks-eval="false">
+      if (window.livewire) {
+        console.warn(
+          "Livewire: It looks like Livewire's @livewireScripts JavaScript assets have already been loaded. Make sure you aren't loading them twice."
+        );
+      }
+
+      window.livewire = new Livewire();
+      window.livewire.devTools(true);
+      window.Livewire = window.livewire;
+      window.livewire_app_url = "";
+      window.livewire_token = "JjNI1oEJPFNqFwGfOMweyaY7TYFJfpwg5TaNTYUs";
+
+      /* Make sure Livewire loads first. */
+      if (window.Alpine) {
+        /* Defer showing the warning so it doesn't get buried under downstream errors. */
+        document.addEventListener("DOMContentLoaded", function () {
+          setTimeout(function () {
+            console.warn(
+              "Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire's scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js"
+            );
+          });
+        });
+      }
+
+      /* Make Alpine wait until Livewire is finished rendering to do its thing. */
+      window.deferLoadingAlpine = function (callback) {
+        window.addEventListener("livewire:load", function () {
+          callback();
+        });
+      };
+
+      let started = false;
+
+      window.addEventListener("alpine:initializing", function () {
+        if (!started) {
+          window.livewire.start();
+
+          started = true;
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (!started) {
+          window.livewire.start();
+
+          started = true;
+        }
+      });
+    </script>
+  </body>
+  <script>
+    document.getElementById("updateBK").addEventListener("click", function () {
+      Swal.fire({
+        title: "Ar tikrai norite atnaujinti?",
+        showCancelButton: true,
+        confirmButtonText: "Atnaujinti",
+      }).then((result) => {
+        fetch("/providers/2/update", {
+          method: "GET",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            Swal.fire({
+              icon: "success",
+              title: "Atnaujinta!",
+            });
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong!",
+            });
+          });
+      });
+    });
+  </script>
+</html>
