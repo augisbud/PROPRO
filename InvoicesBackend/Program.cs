@@ -1,5 +1,9 @@
 using System.Reflection;
+using InvoicesBackend.DbContexts;
+using InvoicesBackend.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +42,9 @@ builder.Services.AddSwaggerGen(options => {
     options.IncludeXmlComments(xmlPath);
 });
 
+builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection")));
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<InvoicesRepository>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

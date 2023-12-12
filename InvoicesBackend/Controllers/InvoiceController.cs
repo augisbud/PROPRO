@@ -1,5 +1,8 @@
 using System.ComponentModel.DataAnnotations;
+using AutoMapper;
+using InvoicesBackend.Entities;
 using InvoicesBackend.Models;
+using InvoicesBackend.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvoicesBackend.Controllers
@@ -9,11 +12,60 @@ namespace InvoicesBackend.Controllers
     [Consumes("application/json")]
     [Route("invoice")]
     [ProducesResponseType(typeof(void), StatusCodes.Status401Unauthorized)]
-    public class InvoiceController : ControllerBase
+    public class InvoiceController(IMapper mapper, InvoicesRepository invoicesRepository) : ControllerBase
     {
-        public InvoiceController()
-        {
+        private readonly IMapper _mapper = mapper;
+        private readonly InvoicesRepository _invoicesRepository = invoicesRepository;
 
+        /// <summary>
+        /// Create a New Invoice
+        /// </summary>
+        /// <param name="invoiceForCreationDTO">Object containing necessary properties for Invoice Creation</param>
+        /// <returns></returns>
+        [HttpPost("create")]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(InvoiceDTO))]
+        public ActionResult<InvoiceDTO> Create([FromBody][Required] InvoiceForCreationDTO invoiceForCreationDTO)
+        {
+            var invoice = _mapper.Map<Invoice>(invoiceForCreationDTO);
+
+            var createdInvoice = _invoicesRepository.AddInvoice(invoice);
+            var invoiceDto = _mapper.Map<InvoiceDTO>(createdInvoice);
+
+            return CreatedAtRoute(
+                "GetInvoice",
+                new { id = invoiceDto.Id }, 
+                invoiceDto
+            );
+        }
+
+        /// <summary>
+        /// Retrieve an Invoice by ID
+        /// </summary>
+        /// <param name="id">The ID of the Invoice to retrieve</param>
+        /// <returns>An Invoice object</returns>
+        [HttpGet("{id}", Name = "GetInvoice")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(InvoiceDTO))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<InvoiceDTO> Get(int id)
+        {
+            var invoice = _invoicesRepository.GetInvoiceById(id);
+            if (invoice == null)
+                return NotFound();
+
+            var invoiceDto = _mapper.Map<InvoiceDTO>(invoice);
+            return Ok(invoiceDto);
+        }
+
+        /// <summary>
+        ///  Remove an Invoice
+        /// </summary>
+        /// <param name="id">ID of an Invoice to Remove</param>
+        /// <returns></returns>
+        [HttpGet("remove/{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult Remove(int id)
+        {
+            return NoContent();
         }
 
         /// <summary>
@@ -28,25 +80,6 @@ namespace InvoicesBackend.Controllers
             [FromQuery] DateTimeOffset? endDate = null)
         {
             return Ok();
-        }
-
-        /// <summary>
-        /// Create a New Invoice
-        /// </summary>
-        /// <param name="invoiceForCreationDTO">Object containing necessary properties for Invoice Creation</param>
-        /// <returns></returns>
-        [HttpPost("create")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(InvoiceDTO))]
-        public ActionResult<InvoiceDTO> Create([FromBody][Required] InvoiceForCreationDTO invoiceForCreationDTO)
-        {
-            return Created();
-        }
-
-        [HttpGet("remove/{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public IActionResult Remove(int id)
-        {
-            return NoContent();
         }
     }
 }
