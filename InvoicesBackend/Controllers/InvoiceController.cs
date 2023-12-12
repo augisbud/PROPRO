@@ -27,7 +27,7 @@ namespace InvoicesBackend.Controllers
         [HttpGet("{id}", Name = "GetInvoice")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(InvoiceDTO))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<InvoiceDTO> Get(int id)
+        public ActionResult<InvoiceDTO> GetInvoiceById(int id)
         {
             var invoice = _invoicesRepository.GetInvoiceById(id);
             if (invoice == null)
@@ -46,7 +46,7 @@ namespace InvoicesBackend.Controllers
         [Authorize]
         [HttpPost("create")]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(InvoiceDTO))]
-        public ActionResult<InvoiceDTO> Create(
+        public ActionResult<InvoiceDTO> CreateInvoice(
             [FromBody][Required] InvoiceForCreationDTO invoiceForCreationDTO
         )
         {
@@ -71,7 +71,7 @@ namespace InvoicesBackend.Controllers
         [HttpGet("remove/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult Remove(int id)
+        public IActionResult RemoveInvoiceById(int id)
         {
             var invoice = _invoicesRepository.GetInvoiceById(id);
             if (invoice == null)
@@ -91,7 +91,7 @@ namespace InvoicesBackend.Controllers
         [Authorize]
         [HttpGet("list")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<InvoiceDTO>))]
-        public ActionResult<List<InvoiceDTO>> List(
+        public ActionResult<List<InvoiceDTO>> ListInvoices(
             [FromQuery] DateTimeOffset? startDate = null, 
             [FromQuery] DateTimeOffset? endDate = null
         )
