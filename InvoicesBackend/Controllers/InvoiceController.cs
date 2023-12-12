@@ -46,7 +46,9 @@ namespace InvoicesBackend.Controllers
         [Authorize]
         [HttpPost("create")]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(InvoiceDTO))]
-        public ActionResult<InvoiceDTO> Create([FromBody][Required] InvoiceForCreationDTO invoiceForCreationDTO)
+        public ActionResult<InvoiceDTO> Create(
+            [FromBody][Required] InvoiceForCreationDTO invoiceForCreationDTO
+        )
         {
             var invoice = _mapper.Map<Invoice>(invoiceForCreationDTO);
 
@@ -91,7 +93,8 @@ namespace InvoicesBackend.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<InvoiceDTO>))]
         public ActionResult<List<InvoiceDTO>> List(
             [FromQuery] DateTimeOffset? startDate = null, 
-            [FromQuery] DateTimeOffset? endDate = null)
+            [FromQuery] DateTimeOffset? endDate = null
+        )
         {
             var invoices = _invoicesRepository.RetrieveInvoices(startDate, endDate);
 
