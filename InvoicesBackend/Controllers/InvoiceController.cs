@@ -3,6 +3,7 @@ using AutoMapper;
 using InvoicesBackend.Entities;
 using InvoicesBackend.Models;
 using InvoicesBackend.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvoicesBackend.Controllers
@@ -22,6 +23,7 @@ namespace InvoicesBackend.Controllers
         /// </summary>
         /// <param name="invoiceForCreationDTO">Object containing necessary properties for Invoice Creation</param>
         /// <returns></returns>
+        [Authorize]
         [HttpPost("create")]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(InvoiceDTO))]
         public ActionResult<InvoiceDTO> Create([FromBody][Required] InvoiceForCreationDTO invoiceForCreationDTO)
@@ -43,6 +45,7 @@ namespace InvoicesBackend.Controllers
         /// </summary>
         /// <param name="id">The ID of the Invoice to retrieve</param>
         /// <returns>An Invoice object</returns>
+        [Authorize]
         [HttpGet("{id}", Name = "GetInvoice")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(InvoiceDTO))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -61,6 +64,7 @@ namespace InvoicesBackend.Controllers
         /// </summary>
         /// <param name="id">ID of an Invoice to Remove</param>
         /// <returns></returns>
+        [Authorize]
         [HttpGet("remove/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult Remove(int id)
@@ -73,6 +77,7 @@ namespace InvoicesBackend.Controllers
         /// </summary>
         /// <param name="startDate">Start of Date Range</param>
         /// <param name="endDate">End of Date Range</param>
+        [Authorize]
         [HttpGet("list")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<InvoiceDTO>))]
         public ActionResult<List<InvoiceDTO>> List(

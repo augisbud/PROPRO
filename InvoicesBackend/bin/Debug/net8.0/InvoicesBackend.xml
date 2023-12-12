@@ -18,19 +18,19 @@
             <param name="id">The ID of the Invoice to retrieve</param>
             <returns>An Invoice object</returns>
         </member>
-        <member name="M:InvoicesBackend.Controllers.InvoiceController.List(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
-            <summary>
-            Retrieve All Invoices in a Date Range
-            </summary>
-            <param name="startDate">Start of Date Range</param>
-            <param name="endDate">End of Date Range</param>
-        </member>
         <member name="M:InvoicesBackend.Controllers.InvoiceController.Remove(System.Int32)">
             <summary>
              Remove an Invoice
             </summary>
             <param name="id">ID of an Invoice to Remove</param>
             <returns></returns>
+        </member>
+        <member name="M:InvoicesBackend.Controllers.InvoiceController.List(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
+            <summary>
+            Retrieve All Invoices in a Date Range
+            </summary>
+            <param name="startDate">Start of Date Range</param>
+            <param name="endDate">End of Date Range</param>
         </member>
         <member name="T:InvoicesBackend.Migrations.InitialMigration">
             <inheritdoc />
