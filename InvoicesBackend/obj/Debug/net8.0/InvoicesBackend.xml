@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InvoicesBackend</name>
+    </assembly>
+    <members>
+        <member name="M:InvoicesBackend.Controllers.InvoiceController.List(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
+            <summary>
+            Retrieve All Invoices in a Date Range
+            </summary>
+            <param name="startDate">Start of Date Range</param>
+            <param name="endDate">End of Date Range</param>
+        </member>
+        <member name="M:InvoicesBackend.Controllers.InvoiceController.Create(InvoicesBackend.Models.InvoiceForCreationDTO)">
+            <summary>
+            Create a New Invoice
+            </summary>
+            <param name="invoiceForCreationDTO">Object containing necessary properties for Invoice Creation</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

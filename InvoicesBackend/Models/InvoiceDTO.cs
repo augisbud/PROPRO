@@ -1,22 +1,12 @@
 namespace InvoicesBackend.Models
 {
-    public class InvoiceDTO
+    public class InvoiceDTO(int id, string name, BuyerDTO buyer, double discount, IEnumerable<ProductDTO> products, DateTimeOffset creationDate)
     {
-        public int Id;
-        public string Name;
-        public BuyerDTO Buyer;
-        public double Discount; 
-        public IEnumerable<ProductDTO> Products;
-        public DateTimeOffset CreationDate;
-
-        public InvoiceDTO(int id, string name, BuyerDTO buyer, double discount, List<ProductDTO> products, DateTimeOffset creationDate)
-        {
-            Id = id;
-            Name = name;
-            Buyer = buyer;
-            Discount = discount;
-            Products = products;
-            CreationDate = creationDate;
-        }
+        public int Id { get; set; } = id;
+        public string Name { get; set; } = name;
+        public BuyerDTO Buyer { get; set; } = buyer;
+        public double Discount { get; set; } = discount;
+        public IEnumerable<ProductDTO> Products { get; set; } = products;
+        public DateTimeOffset CreationDate { get; set; } = creationDate;
     }
 }
