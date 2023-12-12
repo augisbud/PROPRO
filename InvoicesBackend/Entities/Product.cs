@@ -16,9 +16,9 @@ namespace InvoicesBackend.Entities
         [ForeignKey(nameof(InvoiceId))]
         public virtual Invoice Invoice { get; set; } = null!;
 
-        public Product()
-        {
-        }
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        public Product() { }
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
         public Product(int invoiceId, Guid id, string name, int quantity, string unit, double price)
         {

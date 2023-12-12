@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -5,16 +6,22 @@ using System.Text;
 
 namespace JwtInDotnetCore.Controllers
 {
-    [Route("authenticate")]
+    [Route("authentication")]
     [ApiController]
     public class LoginController(IConfiguration config) : ControllerBase
     {
-        private IConfiguration _config = config;
+        private readonly IConfiguration _config = config;
 
-        [HttpPost]
-        public IActionResult Post()
+        /// <summary>
+        /// Authenticate via email and password
+        /// </summary>
+        /// <param name="loginRequest"></param>
+        /// <returns></returns>
+        [HttpPost("login")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+        public IActionResult Authenticate([FromBody] LoginRequest loginRequest)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetValue<string>("Jwt:Key")!));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var Sectoken = new JwtSecurityToken(

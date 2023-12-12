@@ -34,7 +34,7 @@ builder.Services.AddSwaggerGen(options => {
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
-        Description = "Authorization token using the Bearer scheme. \r\n\r\nExample: 'Bearer 123abc'"
+        Description = "Authorization token using the Bearer scheme, please Login using the Login scheme.\r\n\r\nExample: 'Bearer 123abc'"
     });
 
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -61,7 +61,9 @@ builder.Services.AddSwaggerGen(options => {
 });
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection")));
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 builder.Services.AddScoped<InvoicesRepository>();
 
 var app = builder.Build();

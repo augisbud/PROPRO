@@ -19,6 +19,26 @@ namespace InvoicesBackend.Controllers
         private readonly InvoicesRepository _invoicesRepository = invoicesRepository;
 
         /// <summary>
+        /// Retrieve an Invoice by ID
+        /// </summary>
+        /// <param name="id">The ID of the Invoice to retrieve</param>
+        /// <returns></returns>
+        [Authorize]
+        [HttpGet("{id}", Name = "GetInvoice")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(InvoiceDTO))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<InvoiceDTO> Get(int id)
+        {
+            var invoice = _invoicesRepository.GetInvoiceById(id);
+            if (invoice == null)
+                return NotFound();
+
+            var invoiceDto = _mapper.Map<InvoiceDTO>(invoice);
+            
+            return Ok(invoiceDto);
+        }
+
+        /// <summary>
         /// Create a New Invoice
         /// </summary>
         /// <param name="invoiceForCreationDTO">Object containing necessary properties for Invoice Creation</param>
@@ -41,34 +61,22 @@ namespace InvoicesBackend.Controllers
         }
 
         /// <summary>
-        /// Retrieve an Invoice by ID
-        /// </summary>
-        /// <param name="id">The ID of the Invoice to retrieve</param>
-        /// <returns>An Invoice object</returns>
-        [Authorize]
-        [HttpGet("{id}", Name = "GetInvoice")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(InvoiceDTO))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<InvoiceDTO> Get(int id)
-        {
-            var invoice = _invoicesRepository.GetInvoiceById(id);
-            if (invoice == null)
-                return NotFound();
-
-            var invoiceDto = _mapper.Map<InvoiceDTO>(invoice);
-            return Ok(invoiceDto);
-        }
-
-        /// <summary>
-        ///  Remove an Invoice
+        /// Remove an Invoice
         /// </summary>
         /// <param name="id">ID of an Invoice to Remove</param>
         /// <returns></returns>
         [Authorize]
         [HttpGet("remove/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Remove(int id)
         {
+            var invoice = _invoicesRepository.GetInvoiceById(id);
+            if (invoice == null)
+                return NotFound();
+
+            _invoicesRepository.RemoveInvoice(invoice);
+
             return NoContent();
         }
 
@@ -77,6 +85,7 @@ namespace InvoicesBackend.Controllers
         /// </summary>
         /// <param name="startDate">Start of Date Range</param>
         /// <param name="endDate">End of Date Range</param>
+        /// <returns></returns>
         [Authorize]
         [HttpGet("list")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<InvoiceDTO>))]
@@ -84,7 +93,9 @@ namespace InvoicesBackend.Controllers
             [FromQuery] DateTimeOffset? startDate = null, 
             [FromQuery] DateTimeOffset? endDate = null)
         {
-            return Ok();
+            var invoices = _invoicesRepository.RetrieveInvoices(startDate, endDate);
+
+            return Ok(_mapper.Map<IEnumerable<InvoiceDTO>>(invoices));
         }
     }
 }
