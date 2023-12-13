@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&family=Poppins:wght@500;800&display=swap');
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #222323;
+    text-align: left;
+    font-size: 18px;
+}
