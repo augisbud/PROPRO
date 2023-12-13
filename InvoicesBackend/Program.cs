@@ -78,4 +78,12 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope())
+{
+    var container = scope.ServiceProvider;
+    var db = container.GetRequiredService<AppDbContext>();
+
+    db.Database.EnsureCreated();
+}
+
 app.Run();
