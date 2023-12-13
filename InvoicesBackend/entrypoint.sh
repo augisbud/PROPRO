@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-# Run migrations
-dotnet ef database update --project InvoicesBackend
+dotnet ef database update --project InvoicesBackend.csproj
 
-# Start the main process
 exec dotnet InvoicesBackend.dll
