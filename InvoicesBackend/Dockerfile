@@ -10,6 +10,6 @@ RUN dotnet publish -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
-WORKDIR /App
-COPY --from=build-env /App/out .
+WORKDIR /InvoicesBackend
+COPY --from=build-env /InvoicesBackend/out .
 ENTRYPOINT ["dotnet", "DotNet.Docker.dll"]
