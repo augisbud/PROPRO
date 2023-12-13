@@ -4,33 +4,34 @@
         <name>InvoicesBackend</name>
     </assembly>
     <members>
-        <member name="M:InvoicesBackend.Controllers.InvoiceController.Create(InvoicesBackend.Models.InvoiceForCreationDTO)">
+        <member name="M:InvoicesBackend.Controllers.InvoiceController.GetInvoiceById(System.Int32)">
+            <summary>
+            Retrieve an Invoice by ID
+            </summary>
+            <param name="id">The ID of the Invoice to retrieve</param>
+            <returns></returns>
+        </member>
+        <member name="M:InvoicesBackend.Controllers.InvoiceController.CreateInvoice(InvoicesBackend.Models.InvoiceForCreationDTO)">
             <summary>
             Create a New Invoice
             </summary>
             <param name="invoiceForCreationDTO">Object containing necessary properties for Invoice Creation</param>
             <returns></returns>
         </member>
-        <member name="M:InvoicesBackend.Controllers.InvoiceController.Get(System.Int32)">
+        <member name="M:InvoicesBackend.Controllers.InvoiceController.RemoveInvoiceById(System.Int32)">
             <summary>
-            Retrieve an Invoice by ID
-            </summary>
-            <param name="id">The ID of the Invoice to retrieve</param>
-            <returns>An Invoice object</returns>
-        </member>
-        <member name="M:InvoicesBackend.Controllers.InvoiceController.Remove(System.Int32)">
-            <summary>
-             Remove an Invoice
+            Remove an Invoice
             </summary>
             <param name="id">ID of an Invoice to Remove</param>
             <returns></returns>
         </member>
-        <member name="M:InvoicesBackend.Controllers.InvoiceController.List(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
+        <member name="M:InvoicesBackend.Controllers.InvoiceController.ListInvoices(System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
             <summary>
             Retrieve All Invoices in a Date Range
             </summary>
             <param name="startDate">Start of Date Range</param>
             <param name="endDate">End of Date Range</param>
+            <returns></returns>
         </member>
         <member name="T:InvoicesBackend.Migrations.InitialMigration">
             <inheritdoc />
@@ -43,6 +44,13 @@
         </member>
         <member name="M:InvoicesBackend.Migrations.InitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="M:JwtInDotnetCore.Controllers.LoginController.Authenticate(Microsoft.AspNetCore.Identity.Data.LoginRequest)">
+            <summary>
+            Authenticate via email and password
+            </summary>
+            <param name="loginRequest"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>
