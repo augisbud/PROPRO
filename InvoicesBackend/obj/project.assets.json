@@ -3183,6 +3183,7 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.0-rc.2.23480.2",
+      "Microsoft.EntityFrameworkCore.Design >= 8.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0",
@@ -3195,11 +3196,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj",
+      "projectUniqueName": "c:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj",
       "projectName": "InvoicesBackend",
-      "projectPath": "C:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj",
+      "projectPath": "c:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj",
       "packagesPath": "C:\\Users\\budni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\obj\\",
+      "outputPath": "c:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\budni\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3241,6 +3242,12 @@
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[8.0.0-rc.2.23480.2, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[8.0.0, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

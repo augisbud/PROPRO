@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mgJM35hkjVBg3nK44bLMEQx0Bq7bV61JANlb+Us+IJe5lyUSmtDMdIMtcek7mQiV6xGjKt/WCOaBYGbxYsddLw==",
+  "dgSpecHash": "DstaJgS7CeL+gxSPssKLsrkLqRTv9Z70QFUI1sctPQIUTWMIMNeJq7mW1Br9BVemVftjpyk49K8WCYc0/n8KpA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj",
+  "projectFilePath": "c:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\budni\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\budni\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

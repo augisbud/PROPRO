@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj": {}
+    "c:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj": {
+    "c:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj",
+        "projectUniqueName": "c:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj",
         "projectName": "InvoicesBackend",
-        "projectPath": "C:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj",
+        "projectPath": "c:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\InvoicesBackend.csproj",
         "packagesPath": "C:\\Users\\budni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\obj\\",
+        "outputPath": "c:\\Users\\budni\\Desktop\\VU\\PROPRO\\Projektai\\PROPRO\\InvoicesBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\budni\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -53,6 +53,12 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.0-rc.2.23480.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
