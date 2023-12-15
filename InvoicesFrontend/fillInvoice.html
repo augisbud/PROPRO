@@ -18,8 +18,11 @@
             <div class="container">
                 <h2>
                     Sąskaitos išrašymas
-                    <button type="submit" class="btn btn-primary float-right" form="newInvoice"
-                        data-send="0">
+                    <a href="/InvoicesFrontend/login.html" type="submit" class="btn btn-primary float-right btn-spacing"
+                        form="LogOut" data-send="1">
+                        Išeiti iš paskyros
+                    </a>
+                    <button type="submit" class="btn btn-primary float-right" form="newInvoice" data-send="0">
                         Išrašyti
                     </button>
                 </h2>
@@ -60,15 +63,15 @@
                                             </div>
                                             <div class="col">
                                                 <div>
-                                                    <div>
+                                                    <div class="form-group">
                                                         <p class="text-xl">
                                                             Nuolaida
                                                         </p>
                                                         <hr />
-                                                        <div>
+                                                        <div class="input-group">
                                                             <input type="number" id="discount" name="discount" min="0"
                                                                 class="form-control" value="0" />
-                                                            <span>€</span>
+                                                            <span class="input-group-text">€</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -119,7 +122,7 @@
                         <div>
                             <div class="container">
                                 <div class="row">
-                                    <div class="col" >
+                                    <div class="col">
                                         <p class="text-xl">Produktai</p>
                                     </div>
                                     <div class="col">
@@ -128,25 +131,29 @@
                                         </button>
                                     </div>
                                 </div>
-                                <hr/>
+                                <hr />
                                 <div id="product-rows">
-                                    <div>
+                                    <div class="container">
                                         <div class="row">
                                             <input type="number" id="products[][id]" name="products[][id]" hidden />
                                             <div class="form-group">
-                                                <label for="products[][name]" class="block">Pavadinimas</label>
+                                                <label for="products[][name]" class="text-lg">Pavadinimas</label>
                                                 <input type="text" id="products[][name]" name="products[][name]"
-                                                    placeholder="Įveskite produkto pavadinimą" class="form-control"/>
+                                                    placeholder="Įveskite produkto pavadinimą"
+                                                    class="form-control main-width" />
                                             </div>
                                             <div class="form-group">
-                                                <label for="products[][quantity]" class="block">Kiekis</label>
+                                                <label for="products[][quantity]" class="text-lg">Kiekis</label>
                                                 <input type="number" id="products[][quantity]"
-                                                    name="products[][quantity]" min="1" value="1" class="form-control"/>
+                                                    name="products[][quantity]" min="1" value="1"
+                                                    class="form-control sec-width" />
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="products[][quantity_type]" class="block">Mat. tipas</label>
-                                                <select id="products[][quantity_type]" name="products[][quantity_type]" class="form-control">
+                                                <label for="products[][quantity_type]" class="text-lg">Mat.
+                                                    tipas</label>
+                                                <select id="products[][quantity_type]" name="products[][quantity_type]"
+                                                    class="form-control sec-width">
                                                     <option value="vnt.">vnt.</option>
                                                     <option value="m2">m2</option>
                                                     <option value="m3">m3</option>
@@ -155,14 +162,14 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="products[][price]" class="block">Kaina (€)</label>
+                                                <label for="products[][price]" class="text-lg">Kaina (€)</label>
                                                 <input type="number" id="products[][price]" name="products[][price]"
-                                                    min="0" value="0" step=".01" class="form-control"/>
+                                                    min="0" value="0" step=".01" class="form-control sec-width" />
                                             </div>
                                             <div class="form-group">
-                                                <label for="products[][sum]" class="block">Suma (€)</label>
+                                                <label for="products[][sum]" class="text-lg">Suma (€)</label>
                                                 <input type="number" id="products[][sum]" name="products[][sum]" min="0"
-                                                    value="0" step=".01" disabled class="form-control"/>
+                                                    value="0" step=".01" disabled class="form-control sec-width" />
                                             </div>
                                         </div>
                                     </div>
