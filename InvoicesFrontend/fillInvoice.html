@@ -18,10 +18,7 @@
             <div class="container">
                 <h2>
                     Sąskaitos išrašymas
-                    <button type="submit" class="btn btn-primary float-right" form="newInvoice" data-send="1">
-                        Išrašyti ir siųsti
-                    </button>
-                    <button type="submit" class="btn btn-primary float-right btn-spacing" form="newInvoice"
+                    <button type="submit" class="btn btn-primary float-right" form="newInvoice"
                         data-send="0">
                         Išrašyti
                     </button>
@@ -39,7 +36,7 @@
                                 <div class="row">
 
                                     <div class="col">
-                                        <p>Pavadinimas</p>
+                                        <p class="text-xl">Pavadinimas</p>
                                         <hr />
                                         <input type="text" id="name" name="name" value="" class="form-control"
                                             placeholder="Suvedus pirkėjo duomenis bus pradėta automatiškai..."
@@ -50,11 +47,11 @@
                                                     <div>
                                                         <p class="text-xl">Suma</p>
                                                         <hr />
-                                                        <p>
+                                                        <p class="text-lg">
                                                             be PVM:
                                                             <strong name="price" id="price">0</strong>€
                                                         </p>
-                                                        <p>
+                                                        <p class="text-lg">
                                                             su PVM:
                                                             <strong name="priceVAT" id="priceVAT">0</strong>€
                                                         </p>
@@ -64,7 +61,7 @@
                                             <div class="col">
                                                 <div>
                                                     <div>
-                                                        <p>
+                                                        <p class="text-xl">
                                                             Nuolaida
                                                         </p>
                                                         <hr />
@@ -80,8 +77,8 @@
                                     </div>
 
                                     <div id="buyerData" class="col">
-                                        <p>Pirkėjas</p>
-                                        <hr class="pt-2 pb-2" />
+                                        <p class="text-xl">Pirkėjas</p>
+                                        <hr />
                                         <input type="number" id="buyerID" name="buyerID" value="" hidden
                                             class="form-control" />
                                         <input type="text" id="buyerName" name="buyerName" value="" class="form-control"
@@ -122,7 +119,9 @@
                         <div>
                             <div class="container">
                                 <div class="row">
-                                    <p class="col">Produktai</p>
+                                    <div class="col" >
+                                        <p class="text-xl">Produktai</p>
+                                    </div>
                                     <div class="col">
                                         <button type="button" id="add-button" class="btn btn-primary float-right">
                                             Pridėti
@@ -137,17 +136,17 @@
                                             <div class="form-group">
                                                 <label for="products[][name]" class="block">Pavadinimas</label>
                                                 <input type="text" id="products[][name]" name="products[][name]"
-                                                    placeholder="Įveskite produkto pavadinimą" class="form-control-1"/>
+                                                    placeholder="Įveskite produkto pavadinimą" class="form-control"/>
                                             </div>
                                             <div class="form-group">
                                                 <label for="products[][quantity]" class="block">Kiekis</label>
                                                 <input type="number" id="products[][quantity]"
-                                                    name="products[][quantity]" min="1" value="1" class="form-control-1"/>
+                                                    name="products[][quantity]" min="1" value="1" class="form-control"/>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="products[][quantity_type]" class="block">Mat. tipas</label>
-                                                <select id="products[][quantity_type]" name="products[][quantity_type]" class="form-control-1">
+                                                <select id="products[][quantity_type]" name="products[][quantity_type]" class="form-control">
                                                     <option value="vnt.">vnt.</option>
                                                     <option value="m2">m2</option>
                                                     <option value="m3">m3</option>
@@ -158,12 +157,12 @@
                                             <div class="form-group">
                                                 <label for="products[][price]" class="block">Kaina (€)</label>
                                                 <input type="number" id="products[][price]" name="products[][price]"
-                                                    min="0" value="0" step=".01" class="form-control-1"/>
+                                                    min="0" value="0" step=".01" class="form-control"/>
                                             </div>
                                             <div class="form-group">
                                                 <label for="products[][sum]" class="block">Suma (€)</label>
                                                 <input type="number" id="products[][sum]" name="products[][sum]" min="0"
-                                                    value="0" step=".01" disabled class="form-control-1"/>
+                                                    value="0" step=".01" disabled class="form-control"/>
                                             </div>
                                         </div>
                                     </div>
