@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&family=Poppins:wght@500;800&display=swap');
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #222323;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+header {
+    width: auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-spacing{
+    margin-left: 10px;
+}
+
+.form-container {
+    width: auto;
+    margin: 15px auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-container input {
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.form-group {
+    margin-right: 10px;
+}
+
+.text-xl {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.text-lg {
+    margin: 0px;
+    font-size: 16px;
+}
+
+.main-width {
+    max-width: inherit !important;
+    width: 510px !important;
+}
+
+.sec-width {
+    width: 115px !important;
+}

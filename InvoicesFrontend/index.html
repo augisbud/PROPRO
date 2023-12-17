@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>Sąskaita INVOICE_ID </title>
+      <link rel="icon" href="./static/logo1.png" type="image/png">
+      <link rel="stylesheet" type="text/css" href="./invoiceStyle.css">
+   </head>
+   <body>
+      <header class="clearfix">
+         <div id="logo">
+            <img src="./static/logo1.png" alt = "logo">
+         </div>
+         <h1>PVM Sąskaita faktūra Nr.  <spand id="invoiceID" name="invoiceID"></spand> </h1>
+         <div id="project">
+            <div id="clientName" name="clientName"> </div>
+            <div> Įmonės kodas:  <spand id="clientRegCode" name="clientRegCode"></spand></div>
+            <div>PVM Kodas: <spand id="clientVAT" name="clientVAT"></spand></div>
+            <div id="clientAdress" name="clientAdress"> </div>
+            <div> Išrašymo data: <strong> <spand id="invoiceDate" name="invoiceDate"></spand> </strong></div>
+            <div>Apmokėti iki: <strong> <spand id="dueDate" name="dueDate"></spand> </strong></div>
+         </div>
+         <div id="company" class="clearfix">
+            <div id="companyName" name="companyName"></div>
+            <div>Įmonės kodas: <spand id="clientRegCode" name="clientRegCode"></spand> </div>
+            <div>PVM Kodas: <spand id="clientVAT" name="clientVAT"></spand> </div>
+            <div id="companyAdress" name="companyAdress"></div>
+            <div>Banko sąskaitos nr. <strong> <spand id="companyBankAccount" name="companyBankAccount"></spand> </strong></div>
+            <div><a href="tel:" id="companyPhone" name="companyPhone"></a> <a href="mailto:" id="companyMail" name="companyMail"></a></div>
+            <div>Pagal pasiūlymą:<strong> PAS- <spand id="invoiceOfferID" name="invoiceOfferID"></spand> </strong></div>
+         </div>
+      </header>
+      <main>
+         <table>
+            <thead>
+               <tr>
+                  <th style="max-width: 1px;">Eil. Nr.</th>
+                  <th class="desc">Pavadinimas</th>
+                  <th>Mato vnt.</th>
+                  <th>Kiekis</th>
+                  <th>Kaina be PVM €</th>
+                  <th>Suma be PVM €</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td class="service" id="loopIndex" name="loopIndex"></td>
+                  <td class="desc" id="productName" name="productName"></td>
+                  <td class="unit" id="unit" name="unit"></td>
+                  <td class="qty" id="productQuant" name="productQuant"></td>
+                  <td class="subTotal" id="productSubtotal" name="productSubtotal"></td>
+                  <td class="total" id="productTotal" name="productTotal"></td>
+               </tr>
+               <tr>
+                  <td class="service" id="loopIndex" name="loopIndex"></td>
+                  <td class="desc" id="productName" name="productName"></td>
+                  <td class="unit" id="unit" name="unit"></td>
+                  <td class="qty" id="productQuant" name="productQuant"></td>
+                  <td class="subTotal" id="productSubtotal" name="productSubtotal"></td>
+                  <td class="total" id="productTotal" name="productTotal"></td>
+               </tr>
+               <tr>
+                  <td class="grand total" colspan="5">Be PVM</td>
+                  <td class="grand total" id="total" name="total"></td>
+               </tr>
+               <tr>
+                  <td colspan="5">PVM 21%</td>
+                  <td class="total" id="total" name="total"></td>
+               </tr>
+               <tr>
+                  <td colspan="5" class="grand total">Suma su PVM</td>
+                  <td class="grand total" id="grandTotal" name="grandTotal"></td>
+               </tr>
+               <tr>
+                  <td colspan="6"><strong id="words" name="words"></strong></td>
+               </tr>
+            </tbody>
+         </table>
+      </main>
+   </body>
+</html>

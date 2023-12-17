@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Reikalų ministėrija</title>
+    <link rel="icon" href="./static/logo1.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="./fillInvoiceStyle.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div>
+        <!-- Page Heading -->
+        <header>
+            <div class="container">
+                <h2>
+                    Sąskaitos išrašymas
+                    <a href="/InvoicesFrontend/login.html" type="submit" class="btn btn-primary float-right btn-spacing"
+                        form="LogOut" data-send="1">
+                        Išeiti iš paskyros
+                    </a>
+                    <button type="submit" class="btn btn-primary float-right" form="newInvoice" data-send="0">
+                        Išrašyti
+                    </button>
+                </h2>
+            </div>
+        </header>
+        <!-- Page Content -->
+        <main class="container">
+            <form id="newInvoice" action="/invoice" method="POST">
+                <input type="hidden" name="_token" value="JjNI1oEJPFNqFwGfOMweyaY7TYFJfpwg5TaNTYUs" />
+                <div class="form-container">
+                    <div>
+                        <div>
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="col">
+                                        <p class="text-xl">Pavadinimas</p>
+                                        <hr />
+                                        <input type="text" id="name" name="name" value="" class="form-control"
+                                            placeholder="Suvedus pirkėjo duomenis bus pradėta automatiškai..."
+                                            required="required" autocomplete="off" />
+                                        <div class="row">
+                                            <div class="col">
+                                                <div>
+                                                    <div>
+                                                        <p class="text-xl">Suma</p>
+                                                        <hr />
+                                                        <p class="text-lg">
+                                                            be PVM:
+                                                            <strong name="price" id="price">0</strong>€
+                                                        </p>
+                                                        <p class="text-lg">
+                                                            su PVM:
+                                                            <strong name="priceVAT" id="priceVAT">0</strong>€
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div>
+                                                    <div class="form-group">
+                                                        <p class="text-xl">
+                                                            Nuolaida
+                                                        </p>
+                                                        <hr />
+                                                        <div class="input-group">
+                                                            <input type="number" id="discount" name="discount" min="0"
+                                                                class="form-control" value="0" />
+                                                            <span class="input-group-text">€</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="buyerData" class="col">
+                                        <p class="text-xl">Pirkėjas</p>
+                                        <hr />
+                                        <input type="number" id="buyerID" name="buyerID" value="" hidden
+                                            class="form-control" />
+                                        <input type="text" id="buyerName" name="buyerName" value="" class="form-control"
+                                            placeholder="Pirkėjo pavadinimas" required="required" autocomplete="off" />
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="text" id="buyerRegistrationCode" class="form-control"
+                                                    name="buyerRegistrationCode" value="" placeholder="Įmonės kodas"
+                                                    autocomplete="off" />
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" id="buyerVAT" name="buyerVAT" value=""
+                                                    class="form-control" placeholder="PVM Kodas" autocomplete="off" />
+                                            </div>
+                                        </div>
+                                        <input type="text" id="buyerAddress" name="buyerAddress" value=""
+                                            class="form-control" placeholder="Adresas" autocomplete="off" />
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="text" id="buyerEmail" name="buyerEmail" value=""
+                                                    class="form-control" placeholder="El. Paštas" autocomplete="off" />
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" id="buyerPhone" name="buyerPhone" value=""
+                                                    class="form-control" placeholder="Telefono numeris"
+                                                    autocomplete="off" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-container">
+                    <div>
+                        <div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-xl">Produktai</p>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" id="add-button" class="btn btn-primary float-right">
+                                            Pridėti
+                                        </button>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div id="product-rows">
+                                    <div class="container">
+                                        <div class="row">
+                                            <input type="number" id="products[][id]" name="products[][id]" hidden />
+                                            <div class="form-group">
+                                                <label for="products[][name]" class="text-lg">Pavadinimas</label>
+                                                <input type="text" id="products[][name]" name="products[][name]"
+                                                    placeholder="Įveskite produkto pavadinimą"
+                                                    class="form-control main-width" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="products[][quantity]" class="text-lg">Kiekis</label>
+                                                <input type="number" id="products[][quantity]"
+                                                    name="products[][quantity]" min="1" value="1"
+                                                    class="form-control sec-width" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="products[][quantity_type]" class="text-lg">Mat.
+                                                    tipas</label>
+                                                <select id="products[][quantity_type]" name="products[][quantity_type]"
+                                                    class="form-control sec-width">
+                                                    <option value="vnt.">vnt.</option>
+                                                    <option value="m2">m2</option>
+                                                    <option value="m3">m3</option>
+                                                    <option value="val.">val.</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="products[][price]" class="text-lg">Kaina (€)</label>
+                                                <input type="number" id="products[][price]" name="products[][price]"
+                                                    min="0" value="0" step=".01" class="form-control sec-width" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="products[][sum]" class="text-lg">Suma (€)</label>
+                                                <input type="number" id="products[][sum]" name="products[][sum]" min="0"
+                                                    value="0" step=".01" disabled class="form-control sec-width" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+
+</html>
