@@ -1,18 +1,10 @@
 namespace InvoicesBackend.Models
 {
-    public class ProductDTO
+    public class ProductDTO(string name, int quantity, string unit, double price)
     {
-        public string Name;
-        public int Quantity;
-        public string Unit;
-        public double Price;
-
-        public ProductDTO(string name, int quantity, string unit, double price)
-        {
-            Name = name;
-            Quantity = quantity;
-            Unit = unit;
-            Price = price;
-        }
+        public string Name { get; set; } = name;
+        public int Quantity { get; set; } = quantity;
+        public string Unit { get; set; } = unit;
+        public double Price { get; set; } = price;
     }
 }
