@@ -1,3 +1,4 @@
+using InvoicesBackend.Models;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -18,7 +19,7 @@ namespace JwtInDotnetCore.Controllers
         /// <param name="loginRequest"></param>
         /// <returns></returns>
         [HttpPost("login")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TokenDTO))]
         public IActionResult Authenticate([FromBody] LoginRequest loginRequest)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetValue<string>("Jwt:Key")!));
@@ -32,9 +33,7 @@ namespace JwtInDotnetCore.Controllers
                 signingCredentials: credentials
             );
 
-            var token =  new JwtSecurityTokenHandler().WriteToken(Sectoken);
-
-            return Ok(token);
+            return Ok(new TokenDTO(new JwtSecurityTokenHandler().WriteToken(Sectoken)));
         }
     }
 }

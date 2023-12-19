@@ -9,6 +9,19 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options => 
+{ 
+    options.AddPolicy(
+        "AllowSpecificOrigin", 
+        builder => 
+        { 
+            builder.AllowAnyOrigin(); 
+            builder.AllowAnyMethod(); 
+            builder.AllowAnyHeader(); 
+        }
+    ); 
+});
+
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -70,6 +83,7 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseCors("AllowSpecificOrigin");
 
 app.UseHttpsRedirection();
 
