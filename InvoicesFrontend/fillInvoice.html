@@ -11,6 +11,17 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        // Check if the user is authenticated
+        const authToken = sessionStorage.getItem('authToken');
+    
+        if (!authToken){
+            window.location.href = 'login.html';
+        }
+    });
+</script>
+
 <body>
     <div>
         <!-- Page Heading -->
