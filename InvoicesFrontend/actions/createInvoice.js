@@ -49,12 +49,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!response.ok) {
           throw new Error("Invoice creation failed");
         }
+
         return response.json();
       })
-      .then((data) => {
+      .then((invoiceResponse) => {
         // Handle successful response
-        console.log("Invoice created:", data);
-        // Redirect or perform any other actions as needed ... TODO
+        const invoiceId = invoiceResponse.id;
+        console.log("ID: ", invoiceId);
+        window.location.href = `index.html?invoiceId=${invoiceId}`;
       });
   });
 });
