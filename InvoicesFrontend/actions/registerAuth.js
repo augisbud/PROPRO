@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Making a POST request using Fetch API
-    // PROD: http://propro.zzzz.lt:1027/authentication/login
-    fetch("https://localhost:8080/authentication/login", {
+    // PROD: http://propro.zzzz.lt:1027/authentication/register
+    fetch("http://propro.zzzz.lt:1027/authentication/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
