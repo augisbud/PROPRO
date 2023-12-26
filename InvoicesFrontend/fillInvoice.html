@@ -6,7 +6,6 @@
     <title>Reikalų ministėrija</title>
     <link rel="icon" href="./static/logo1.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="./fillInvoicestyle.css">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -126,7 +125,7 @@
                                         <p class="text-xl">Produktai</p>
                                     </div>
                                     <div class="col">
-                                        <button type="button" id="add-button" class="btn btn-primary float-right">
+                                        <button type="button" id="addNewProduct" class="btn btn-primary float-right">
                                             Pridėti
                                         </button>
                                     </div>
@@ -173,7 +172,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>                                
+                                </div>
+
                                 <div>
                                     <table class="table">
                                         <thead>
@@ -186,38 +186,8 @@
                                                 <th scope="col"></th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr id="emptyList" name="emptyList"> 
-                                                <td>-</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Lexus IS220d</td>
-                                                <td>1</td>
-                                                <td>vnt.</td>
-                                                <td>9999</td>
-                                                <td>9999</td>
-                                                <td><a class="btn btn-danger">Ištrinti</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>BMW 320d</td>
-                                                <td>1</td>
-                                                <td>vnt.</td>
-                                                <td>9999</td>
-                                                <td>9999</td>
-                                                <td><a class="btn btn-danger">Ištrinti</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>MINI COOPER</td>
-                                                <td>1</td>
-                                                <td>vnt.</td>
-                                                <td>9999</td>
-                                                <td>9999</td>
-                                                <td><a class="btn btn-danger">Ištrinti</a></td>
-                                            </tr>
+                                        <tbody id="productsList">
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -229,4 +199,5 @@
         </main>
     </div>
 
+    <script src="/InvoicesFrontend/productListScript.js"></script>
 </html>
