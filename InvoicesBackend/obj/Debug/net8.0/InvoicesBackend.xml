@@ -4,18 +4,18 @@
         <name>InvoicesBackend</name>
     </assembly>
     <members>
-        <member name="M:JwtInDotnetCore.Controllers.AuthController.Authenticate(Microsoft.AspNetCore.Identity.Data.LoginRequest)">
+        <member name="M:InvoicesBackend.Controllers.AuthenticationController.Authenticate(InvoicesBackend.Models.LoginRequestDTO)">
             <summary>
             Authenticate via email and password
             </summary>
-            <param name="loginRequest"></param>
+            <param name="requestDTO"></param>
             <returns></returns>
         </member>
-        <member name="M:JwtInDotnetCore.Controllers.AuthController.Register(Microsoft.AspNetCore.Identity.Data.RegisterRequest)">
+        <member name="M:InvoicesBackend.Controllers.AuthenticationController.Register(InvoicesBackend.Models.RegisterRequestDTO)">
             <summary>
             Register user
             </summary>
-            <param name="registerRequest"></param>
+            <param name="requestDTO"></param>
             <returns></returns>
         </member>
         <member name="M:InvoicesBackend.Controllers.InvoiceController.GetInvoiceById(System.Int32)">
@@ -57,6 +57,30 @@
             <inheritdoc />
         </member>
         <member name="M:InvoicesBackend.Migrations.InitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:InvoicesBackend.Migrations.LoginRegisterMigration">
+            <inheritdoc />
+        </member>
+        <member name="M:InvoicesBackend.Migrations.LoginRegisterMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:InvoicesBackend.Migrations.LoginRegisterMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:InvoicesBackend.Migrations.LoginRegisterMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:InvoicesBackend.Migrations.PaymentDateMigration">
+            <inheritdoc />
+        </member>
+        <member name="M:InvoicesBackend.Migrations.PaymentDateMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:InvoicesBackend.Migrations.PaymentDateMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:InvoicesBackend.Migrations.PaymentDateMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

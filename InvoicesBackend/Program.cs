@@ -3,27 +3,25 @@ using System.Text;
 using InvoicesBackend.DbContexts;
 using InvoicesBackend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options => 
-{ 
-    options.AddPolicy(
-        "AllowSpecificOrigin", 
-        builder => 
-        { 
-            builder.AllowAnyOrigin(); 
-            builder.AllowAnyMethod(); 
-            builder.AllowAnyHeader(); 
-        }
-    ); 
-});
+builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection")));
 
 builder.Services
-    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>();
+
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
@@ -73,11 +71,23 @@ builder.Services.AddSwaggerGen(options => {
     options.IncludeXmlComments(xmlPath);
 });
 
-builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection")));
+builder.Services.AddCors(options => 
+{ 
+    options.AddPolicy(
+        "AllowSpecificOrigin", 
+        builder => 
+        { 
+            builder.AllowAnyOrigin(); 
+            builder.AllowAnyMethod(); 
+            builder.AllowAnyHeader(); 
+        }
+    ); 
+});
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<InvoicesRepository>();
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
 var app = builder.Build();
 
@@ -95,6 +105,7 @@ using (var scope = app.Services.CreateScope())
     var db = container.GetRequiredService<AppDbContext>();
 
     db.Database.EnsureCreated();
+    db.Database.Migrate();
 }
 
 app.Run();
