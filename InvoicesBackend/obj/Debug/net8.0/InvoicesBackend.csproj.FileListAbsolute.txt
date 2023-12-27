@@ -6,7 +6,6 @@ C:\Users\budni\Desktop\VU\PROPRO\Projektai\PROPRO\InvoicesBackend\obj\Debug\net8
 C:\Users\budni\Desktop\VU\PROPRO\Projektai\PROPRO\InvoicesBackend\obj\Debug\net8.0\InvoicesBackend.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\budni\Desktop\VU\PROPRO\Projektai\PROPRO\InvoicesBackend\obj\Debug\net8.0\InvoicesBackend.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\budni\Desktop\VU\PROPRO\Projektai\PROPRO\InvoicesBackend\obj\Debug\net8.0\InvoicesBackend.sourcelink.json
-C:\Users\budni\Desktop\VU\PROPRO\Projektai\PROPRO\InvoicesBackend\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\budni\Desktop\VU\PROPRO\Projektai\PROPRO\InvoicesBackend\bin\Debug\net8.0\appsettings.json
 C:\Users\budni\Desktop\VU\PROPRO\Projektai\PROPRO\InvoicesBackend\bin\Debug\net8.0\InvoicesBackend.exe
 C:\Users\budni\Desktop\VU\PROPRO\Projektai\PROPRO\InvoicesBackend\bin\Debug\net8.0\InvoicesBackend.deps.json
@@ -245,3 +244,4 @@ C:\Projects\proprog-project\PROPRO\InvoicesBackend\obj\Debug\net8.0\refint\Invoi
 C:\Projects\proprog-project\PROPRO\InvoicesBackend\obj\Debug\net8.0\InvoicesBackend.pdb
 C:\Projects\proprog-project\PROPRO\InvoicesBackend\obj\Debug\net8.0\InvoicesBackend.genruntimeconfig.cache
 C:\Projects\proprog-project\PROPRO\InvoicesBackend\obj\Debug\net8.0\ref\InvoicesBackend.dll
+C:\Users\budni\Desktop\VU\PROPRO\Projektai\PROPRO\InvoicesBackend\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
