@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // PROD: http://propro.zzzz.lt:1027/invoice/create
     // DEV: https://localhost:8080/invoice/create
-    fetch("https://localhost:8080/invoice/create", {
+    fetch("http://propro.zzzz.lt:1027/invoice/create", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${authToken}`,
