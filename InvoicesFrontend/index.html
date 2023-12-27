@@ -5,6 +5,7 @@
       <title>Sąskaita INVOICE_ID </title>
       <link rel="icon" href="./static/logo1.png" type="image/png">
       <link rel="stylesheet" type="text/css" href="./invoiceStyle.css">
+      <script src="./actions/showInvoice.js"></script>
    </head>
    <body>
       <header class="clearfix">
@@ -13,21 +14,23 @@
          </div>
          <h1>PVM Sąskaita faktūra Nr.  <spand id="invoiceID" name="invoiceID"></spand> </h1>
          <div id="project">
-            <div id="clientName" name="clientName"> </div>
-            <div> Įmonės kodas:  <spand id="clientRegCode" name="clientRegCode"></spand></div>
-            <div>PVM Kodas: <spand id="clientVAT" name="clientVAT"></spand></div>
-            <div id="clientAdress" name="clientAdress"> </div>
-            <div> Išrašymo data: <strong> <spand id="invoiceDate" name="invoiceDate"></spand> </strong></div>
-            <div>Apmokėti iki: <strong> <spand id="dueDate" name="dueDate"></spand> </strong></div>
+            <div>Įmonės pavadinimas:  <spand id="buyerName" name="buyerName"></spand></div>
+            <div>Įmonės kodas:  <spand id="buyerRegCode" name="buyerRegCode"></spand></div>
+            <div>PVM Kodas: <spand id="buyerVAT" name="buyerVAT"></spand></div>
+            <div>Įmonės adresas: <spand id="buyerAdress" name="buyerAdress"></spand></div>
+            <div>Tel. nr.: <a href="tel:" id="buyerPhone" name="buyerPhone"></a></div>
+            <div>El. paštas: <a href="mailto:" id="buyerMail" name="buyerMail"></a></div>
+            <div>Išrašymo data: <strong><spand id="invoiceDate" name="invoiceDate"></spand></strong></div>
+            <div>Apmokėti iki: <strong><spand id="dueDate" name="dueDate"></spand></strong></div>
          </div>
          <div id="company" class="clearfix">
-            <div id="companyName" name="companyName"></div>
-            <div>Įmonės kodas: <spand id="clientRegCode" name="clientRegCode"></spand> </div>
-            <div>PVM Kodas: <spand id="clientVAT" name="clientVAT"></spand> </div>
-            <div id="companyAdress" name="companyAdress"></div>
-            <div>Banko sąskaitos nr. <strong> <spand id="companyBankAccount" name="companyBankAccount"></spand> </strong></div>
-            <div><a href="tel:" id="companyPhone" name="companyPhone"></a> <a href="mailto:" id="companyMail" name="companyMail"></a></div>
-            <div>Pagal pasiūlymą:<strong> PAS- <spand id="invoiceOfferID" name="invoiceOfferID"></spand> </strong></div>
+            <div>Įmonės pavadinimas:  <spand id="sellerName" name="sellerName">Reikalų Ministerija</spand></div>
+            <div>Įmonės kodas: <spand id="sellerRegCode" name="sellerRegCode">111320069</spand></div>
+            <div>PVM Kodas: <spand id="sellerVAT" name="sellerVAT">LT11320420</spand></div>
+            <div>Įmonės adresas: <spand id="sellerAdress" name="sellerAdress">Verkių g. 1</spand></div>
+            <div>Banko sąskaitos nr.: <strong><spand id="companyBankAccount" name="companyBankAccount">LT66677732469</spand></strong></div>
+            <div>Tel. nr.: <a href="tel:" id="sellerPhone" name="sellerPhone">+37077769420</a></div>
+            <div>El. paštas: <a href="mailto:" id="sellerMail" name="sellerMail">reikalas.neblogas@ministerija.lt</a></div>
          </div>
       </header>
       <main>

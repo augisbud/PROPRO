@@ -4,6 +4,20 @@
         <name>InvoicesBackend</name>
     </assembly>
     <members>
+        <member name="M:JwtInDotnetCore.Controllers.AuthController.Authenticate(Microsoft.AspNetCore.Identity.Data.LoginRequest)">
+            <summary>
+            Authenticate via email and password
+            </summary>
+            <param name="loginRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JwtInDotnetCore.Controllers.AuthController.Register(Microsoft.AspNetCore.Identity.Data.RegisterRequest)">
+            <summary>
+            Register user
+            </summary>
+            <param name="registerRequest"></param>
+            <returns></returns>
+        </member>
         <member name="M:InvoicesBackend.Controllers.InvoiceController.GetInvoiceById(System.Int32)">
             <summary>
             Retrieve an Invoice by ID
@@ -44,13 +58,6 @@
         </member>
         <member name="M:InvoicesBackend.Migrations.InitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
-        </member>
-        <member name="M:JwtInDotnetCore.Controllers.LoginController.Authenticate(Microsoft.AspNetCore.Identity.Data.LoginRequest)">
-            <summary>
-            Authenticate via email and password
-            </summary>
-            <param name="loginRequest"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>
