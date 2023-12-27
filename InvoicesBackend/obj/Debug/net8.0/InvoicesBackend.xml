@@ -4,14 +4,14 @@
         <name>InvoicesBackend</name>
     </assembly>
     <members>
-        <member name="M:JwtInDotnetCore.Controllers.AuthenticationController.Authenticate(InvoicesBackend.Models.LoginRequestDTO)">
+        <member name="M:InvoicesBackend.Controllers.AuthenticationController.Authenticate(InvoicesBackend.Models.LoginRequestDTO)">
             <summary>
             Authenticate via email and password
             </summary>
             <param name="requestDTO"></param>
             <returns></returns>
         </member>
-        <member name="M:JwtInDotnetCore.Controllers.AuthenticationController.Register(InvoicesBackend.Models.RegisterRequestDTO)">
+        <member name="M:InvoicesBackend.Controllers.AuthenticationController.Register(InvoicesBackend.Models.RegisterRequestDTO)">
             <summary>
             Register user
             </summary>
@@ -69,6 +69,18 @@
             <inheritdoc />
         </member>
         <member name="M:InvoicesBackend.Migrations.LoginRegisterMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:InvoicesBackend.Migrations.PaymentDateMigration">
+            <inheritdoc />
+        </member>
+        <member name="M:InvoicesBackend.Migrations.PaymentDateMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:InvoicesBackend.Migrations.PaymentDateMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:InvoicesBackend.Migrations.PaymentDateMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

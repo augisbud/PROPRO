@@ -7,25 +7,21 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options => 
-{ 
-    options.AddPolicy(
-        "AllowSpecificOrigin", 
-        builder => 
-        { 
-            builder.AllowAnyOrigin(); 
-            builder.AllowAnyMethod(); 
-            builder.AllowAnyHeader(); 
-        }
-    ); 
-});
+builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection")));
 
 builder.Services
-    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>();
+
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
@@ -75,12 +71,18 @@ builder.Services.AddSwaggerGen(options => {
     options.IncludeXmlComments(xmlPath);
 });
 
-builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection")));
-
-builder.Services
-    .AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
+builder.Services.AddCors(options => 
+{ 
+    options.AddPolicy(
+        "AllowSpecificOrigin", 
+        builder => 
+        { 
+            builder.AllowAnyOrigin(); 
+            builder.AllowAnyMethod(); 
+            builder.AllowAnyHeader(); 
+        }
+    ); 
+});
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -103,6 +105,7 @@ using (var scope = app.Services.CreateScope())
     var db = container.GetRequiredService<AppDbContext>();
 
     db.Database.EnsureCreated();
+    db.Database.Migrate();
 }
 
 app.Run();

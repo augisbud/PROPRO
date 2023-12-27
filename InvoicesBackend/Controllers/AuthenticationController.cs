@@ -2,10 +2,10 @@ using InvoicesBackend.Models;
 using InvoicesBackend.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace JwtInDotnetCore.Controllers
+namespace InvoicesBackend.Controllers
 {
-    [Route("authentication")]
     [ApiController]
+    [Route("authentication")]
     public class AuthenticationController(IAuthenticationService authenticationService) : ControllerBase
     {
         private readonly IAuthenticationService _authenticationService = authenticationService;
