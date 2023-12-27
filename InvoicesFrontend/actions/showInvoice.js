@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // fetch invoice by id
   // PROD: http://propro.zzzz.lt:1027/invoice/{}
   // DEV: https://localhost:8080/invoice/{}
-  fetch(`http://propro.zzzz.lt:1027/invoice/${paramInvoiceId}`, {
+  fetch(`https://localhost:8080/invoice/${paramInvoiceId}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${authToken}`,
@@ -36,9 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const formattedCreationDate = creationDate.toISOString().split('T')[0];
 
         document.getElementById("invoiceID").innerText = invoiceDTO.id;
-        document.getElementById("clientRegCode").innerText = invoiceDTO.buyer.code;
-        document.getElementById("clientVAT").innerText = invoiceDTO.buyer.vat;
-        document.getElementById("clientAdress").innerText = invoiceDTO.buyer.address;
+        document.getElementById("buyerName").innerText = invoiceDTO.buyer.name;
+        document.getElementById("buyerRegCode").innerText = invoiceDTO.buyer.code;
+        document.getElementById("buyerVAT").innerText = invoiceDTO.buyer.vat;
+        document.getElementById("buyerPhone").innerText = invoiceDTO.buyer.phone;
+        document.getElementById("buyerAdress").innerText = invoiceDTO.buyer.address;
+        document.getElementById("buyerMail").innerText = invoiceDTO.buyer.email;
         document.getElementById("invoiceDate").innerText = formattedCreationDate;
         // document.getElementById("dueDate").innerText = invoiceDTO;
         // document.getElementById("").innerText = invoiceDTO;
