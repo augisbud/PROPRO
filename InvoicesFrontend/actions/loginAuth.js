@@ -1,15 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
   const formLogin = document.querySelector("#login-form");
+  const errorContainer = document.querySelector("#error-container");
 
   // API call for login
   formLogin.addEventListener("submit", function (event) {
     event.preventDefault();
 
+    errorContainer.innerHTML = "";
+
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
     const data = {
-      email: username,
+      userName: username,
       password: password,
     };
 
@@ -39,7 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "summary.html";
       })
       .catch((error) => {
-        console.log("Error:", error);
+        displayErrorMessage("Netinkamas prisijungimo vardas arba slaptažodis");
       });
   });
+
+  function displayErrorMessage(message) {
+    const errorMessage = document.createElement("div");
+    errorMessage.textContent = message;
+    errorMessage.style.color = "red";
+    errorMessage.style.marginTop = "10px";
+    errorContainer.appendChild(errorMessage);
+  }
 });

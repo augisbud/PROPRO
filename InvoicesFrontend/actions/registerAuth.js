@@ -1,26 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
   const formRegister = document.querySelector("#register-form");
+  const errorContainer = document.querySelector("#error-container");
 
   // API call for register
   formRegister.addEventListener("submit", function (event) {
     event.preventDefault();
 
+    errorContainer.innerHTML = "";
+
     const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const rePassword = document.getElementById("re-password").value;
 
     if (password !== rePassword) {
-      // Display error message
-      const errorMessage = document.createElement("div");
-      errorMessage.textContent = "Pateikti slaptažodžiai nesutampa";
-      errorMessage.style.color = "red";
-      errorMessage.style.marginTop = "10px"
-      formRegister.appendChild(errorMessage);
+      displayErrorMessage("Pateikti slaptažodžiai nesutampa");
       return;
     }
 
     const data = {
-      email: username,
+      email: email,
+      userName: username,
       password: password,
     };
 
@@ -36,7 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Registration failed");
+          return response.json().then((error) => {
+            throw new Error(error.message || "Registration failed");
+          });
+
         }
         return response.json();
       })
@@ -50,6 +53,15 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch((error) => {
         console.log("Error:", error);
+        displayErrorMessage(error.message || "Registration failed");
       });
   });
+
+  function displayErrorMessage(message) {
+    const errorMessage = document.createElement("div");
+    errorMessage.textContent = message;
+    errorMessage.style.color = "red";
+    errorMessage.style.marginTop = "10px";
+    errorContainer.appendChild(errorMessage);
+  }
 });
