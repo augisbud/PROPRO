@@ -245,3 +245,4 @@ C:\Projects\proprog-project\PROPRO\InvoicesBackend\obj\Debug\net8.0\InvoicesBack
 C:\Projects\proprog-project\PROPRO\InvoicesBackend\obj\Debug\net8.0\InvoicesBackend.genruntimeconfig.cache
 C:\Projects\proprog-project\PROPRO\InvoicesBackend\obj\Debug\net8.0\ref\InvoicesBackend.dll
 C:\Users\budni\Desktop\VU\PROPRO\Projektai\PROPRO\InvoicesBackend\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Projects\proprog-project\PROPRO\InvoicesBackend\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
