@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
   <title>Reikalų ministėrija</title>
   <link rel="icon" href="./static/logo1.png" type="image/png">
   <link rel="stylesheet" type="text/css" href="./fillInvoicestyle.css">
@@ -142,7 +142,7 @@
                     </div>
                     <div class="form-group">
                       <label for="products[][quantity]" class="text-lg">Kiekis</label>
-                      <input type="number" id="products[][quantity]" name="products[][quantity]" min="1" value="1"
+                      <input id="products[][quantity]" name="products[][quantity]" min="1" value="1"
                         class="form-control sec-width" />
                     </div>
 
@@ -159,12 +159,12 @@
 
                     <div class="form-group">
                       <label for="products[][price]" class="text-lg">Kaina (€)</label>
-                      <input type="number" id="products[][price]" name="products[][price]" min="0" value="0" step=".01"
+                      <input  id="products[][price]" name="products[][price]" min="0" value="0"
                         class="form-control sec-width" />
                     </div>
                     <div class="form-group">
                       <label for="products[][sum]" class="text-lg">Suma (€)</label>
-                      <input type="number" id="products[][sum]" name="products[][sum]" min="0" value="0" step=".01"
+                      <input id="products[][sum]" name="products[][sum]" 
                         disabled class="form-control sec-width" />
                     </div>
                   </div>
@@ -194,7 +194,7 @@
       </div>
       </div>
     </form>
-    <script src="/InvoicesFrontend/productListScript.js"></script>
+    <script src="/InvoicesFrontend/actions/productListScript.js"></script>
   </main>
 </body>
 
