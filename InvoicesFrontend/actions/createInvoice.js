@@ -1,3 +1,5 @@
+var products = [];
+
 document.addEventListener("DOMContentLoaded", function () {
   // Check if the user is authenticated
   const authToken = sessionStorage.getItem("authToken");
@@ -13,6 +15,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const formData = new FormData(invoiceForm);
 
+    // Convert local date to UTC before sending it to the server
+    const localDate = new Date(formData.get("paymentDate"));
+    const utcDate = new Date(
+      Date.UTC(
+        localDate.getUTCFullYear(),
+        localDate.getUTCMonth(),
+        localDate.getUTCDate(),
+        localDate.getUTCHours(),
+        localDate.getUTCMinutes(),
+        localDate.getUTCSeconds()
+      )
+    );
+
     const invoiceData = {
       name: formData.get("name"),
       buyer: {
@@ -25,11 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       discount: parseFloat(formData.get("discount")),
       products: products,
+      paymentDate: utcDate.toISOString(),
     };
 
     // PROD: http://propro.zzzz.lt:1027/invoice/create
     // DEV: https://localhost:8080/invoice/create
-    fetch("https://localhost:8080/invoice/create", {
+    fetch("http://propro.zzzz.lt:1027/invoice/create", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -48,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((invoiceResponse) => {
         // Handle successful response
         const invoiceId = invoiceResponse.id;
-        console.log("ID: ", invoiceId);
         window.location.href = `index.html?invoiceId=${invoiceId}`;
       });
   });
@@ -154,6 +169,15 @@ function createTableRow() {
   var product = Number(quantityValue) * Number(priceValue);
   cell5.textContent = product;
   newRow.appendChild(cell5);
+
+  // Add product details to the products array
+  var product = {
+    name: nameValue,
+    quantity: parseFloat(quantityValue),
+    unit: document.getElementById("products[][quantity_type]").value || '',
+    price: parseFloat(priceValue),
+  }
+  products.push(product);
 
   // Creating a working delete button
   var cell6 = document.createElement("td");
