@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // fetch invoice by id
   // PROD: http://propro.zzzz.lt:1027/invoice/{}
   // DEV: https://localhost:8080/invoice/{}
-  fetch(`http://propro.zzzz.lt:1027/invoice/${paramInvoiceId}`, {
+  fetch(`https://localhost:8080/invoice/${paramInvoiceId}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${authToken}`,
