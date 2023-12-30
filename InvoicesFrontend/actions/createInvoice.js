@@ -2,7 +2,7 @@ var products = [];
 
 document.addEventListener("DOMContentLoaded", function () {
   // Check if the user is authenticated
-  const authToken = sessionStorage.getItem("authToken");
+  const authToken = localStorage.getItem("authToken");
 
   if (!authToken) {
     window.location.href = "login.html";

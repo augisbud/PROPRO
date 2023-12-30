@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then((result) => {
         console.log(result.token);
-        // Store the token in session storage
-        sessionStorage.setItem("authToken", result.token);
+        // Store the token in local storage
+        localStorage.setItem("authToken", result.token);
 
         // Redirect to home page
         window.location.href = "login.html";
