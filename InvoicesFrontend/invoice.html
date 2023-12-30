@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>Sąskaita INVOICE_ID </title>
+      <link rel="icon" href="./static/logo1.png" type="image/png">
+      <link rel="stylesheet" type="text/css" href="./invoiceStyle.css">
+      <script src="./actions/showInvoice.js"></script>
+   </head>
+   <body>
+      <header class="clearfix">
+         <div id="logo">
+            <img src="./static/logo1.png" alt = "logo">
+         </div>
+         <h1>PVM Sąskaita faktūra Nr.  <span class="invoiceId" id="invoiceID" name="invoiceID"></span> </h1>
+         <div id="project">
+            <h2>Pirkėjas</h2>
+            <p>Įmonės pavadinimas:  <span id="buyerName" name="buyerName"></span></p>
+            <p>Įmonės kodas:  <span id="buyerRegCode" name="buyerRegCode"></span></p>
+            <p>PVM Kodas: <span id="buyerVAT" name="buyerVAT"></span></p>
+            <p>Įmonės adresas: <span id="buyerAdress" name="buyerAdress"></span></p>
+            <p>Tel. nr.: <a href="tel:" id="buyerPhone" name="buyerPhone"></a></p>
+            <p>El. paštas: <a href="mailto:" id="buyerMail" name="buyerMail"></a></p>
+            <p>Išrašymo data: <strong><span id="invoiceDate" name="invoiceDate"></span></strong></p>
+            <p>Apmokėti iki: <strong><span id="dueDate" name="dueDate"></span></strong></p>
+         </div>
+         <div id="company" class="clearfix">
+            <h2>Pardavėjas</h2>
+            <p>Įmonės pavadinimas:  <span id="sellerName" name="sellerName">Reikalų Ministerija</span></p>
+            <p>Įmonės kodas: <span id="sellerRegCode" name="sellerRegCode">111320069</span></p>
+            <p>PVM Kodas: <span id="sellerVAT" name="sellerVAT">LT11320420</span></p>
+            <p>Įmonės adresas: <span id="sellerAdress" name="sellerAdress">Verkių g. 1</span></p>
+            <p>Banko sąskaitos nr.: <strong><span id="companyBankAccount" name="companyBankAccount">LT66677732469</span></strong></p>
+            <p>Tel. nr.: <a href="tel:" id="sellerPhone" name="sellerPhone">+37077769420</a></p>
+            <p>El. paštas: <a href="mailto:" id="sellerMail" name="sellerMail">reikalas.neblogas@ministerija.lt</a></p>
+         </div>
+      </header>
+      <main>
+         <table>
+            <thead>
+               <tr>
+                  <th>Nr.</th>
+                  <th>Pavadinimas</th>
+                  <th>Mato vnt.</th>
+                  <th>Kiekis</th>
+                  <th>Kaina be PVM €</th>
+                  <th>Suma be PVM €</th>
+               </tr>
+            </thead>
+            <tbody id="productsTableBody">
+
+            </tbody>
+            <tfoot>
+               <tr>
+                  <td class="grand total" colspan="5">Be PVM</td>
+                  <td class="grand total" id="total" name="total"></td>
+               </tr>
+               <tr>
+                  <td colspan="5">PVM 21%</td>
+                  <td class="tax" id="tax" name="tax"></td>
+               </tr>
+               <tr>
+                  <td colspan="5" class="grand total">Suma su PVM</td>
+                  <td class="grand total" id="grandTotal" name="grandTotal"></td>
+               </tr>
+               <tr>
+                  <td colspan="6"><strong id="words" name="words"></strong></td>
+               </tr>
+            </tfoot>
+         </table>
+      </main>
+   </body>
+</html>

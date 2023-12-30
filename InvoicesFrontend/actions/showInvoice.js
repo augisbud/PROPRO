@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Check if the user is authenticated
-  const authToken = sessionStorage.getItem("authToken");
+  const authToken = localStorage.getItem("authToken");
 
   if (!authToken) {
     window.location.href = "login.html";
@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
     })
     .then((invoiceDTO) => {
+        document.title = `Sąskaita Nr. ${invoiceDTO.id}`;
+
         var total = 0;
         var grandTotal = 0;
         const taxRate = 0.21;
@@ -74,5 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("total").innerText = total;
         document.getElementById("tax").innerText = tax;
         document.getElementById("grandTotal").innerText = grandTotal;
+
+        window.print();
     })
 });

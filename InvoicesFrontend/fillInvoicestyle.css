@@ -16,10 +16,6 @@ header {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.btn-spacing{
-    margin-left: 10px;
-}
-
 .form-container {
     width: auto;
     margin: 15px auto;

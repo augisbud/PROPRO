@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+  localStorage.removeItem("authToken");
+
   const formLogin = document.querySelector("#login-form");
   const errorContainer = document.querySelector("#error-container");
 
@@ -35,11 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then((result) => {
         console.log(result.token);
-        // Store the token in session storage
-        sessionStorage.setItem("authToken", result.token);
+        // Store the token in local storage
+        localStorage.setItem("authToken", result.token);
 
         // Redirect to home page
-        window.location.href = "summary.html";
+        window.location.href = "index.html";
       })
       .catch((error) => {
         displayErrorMessage("Netinkamas prisijungimo vardas arba slaptažodis");
