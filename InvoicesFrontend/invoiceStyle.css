@@ -108,7 +108,7 @@ table .service, table .desc {
 }
 table td {
     padding: 10px;
-    text-align: right;
+    text-align: center;
     font-size: 1.1em;
 }
 table td.service, table td.desc {
@@ -117,9 +117,12 @@ table td.service, table td.desc {
 table td.unit, table td.qty, table td.total {
     font-size: 1.1em;
 }
-table td.grand {
+table td.grand{
     border-top: 1px solid #5D6975;
-   ;
+    text-align: right;
+}
+table td.tax {
+    text-align: right;
 }
 #notices .notice {
     color: #5D6975;
