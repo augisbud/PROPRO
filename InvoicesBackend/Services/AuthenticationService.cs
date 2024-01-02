@@ -61,7 +61,7 @@ namespace InvoicesBackend.Services
                 _configuration["Jwt:Issuer"],
                 _configuration["Jwt:Issuer"],
                 authClaims,
-                expires: DateTime.Now.AddMinutes(60),
+                expires: DateTime.Now.AddSeconds(31556926),
                 signingCredentials: credentials
             );
 
